@@ -1,0 +1,14 @@
+#topnav {
+    display: flex;
+    margin-top: 52px;
+    .nav-item {
+        font-size: 24px;
+        opacity: 45%;
+        width: fit-content;
+        margin-right: 67px;
+        &#selected {
+            text-decoration: underline;
+            opacity: 100%;
+        }
+    }
+}
