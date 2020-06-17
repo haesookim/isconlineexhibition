@@ -11,6 +11,7 @@
         grid-template-rows: 1fr 250px;
         #scrollview {
             overflow: scroll;
+            margin: 10px 0 0;
             .note {
                 padding: 10px 20px;
                 .top-wrapper {
@@ -30,6 +31,9 @@
         }
         #inputview {
             padding: 20px;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            grid-template-rows: 50px 1fr 60px;
             * {
                 font-size: 18px;
                 color: black;
@@ -41,13 +45,15 @@
                 border-radius: 4px;
                 border: solid 1px #707070;
                 //height: 40px;
-                width: 130px;
+                max-width: 160px;
                 padding: 9px 16px;
                 margin-bottom: 12px;
             }
             textarea {
+                grid-column-start: 1;
+                grid-column-end: 4;
                 resize: none;
-                width: 352px;
+                min-width: 352px;
                 padding: 12px 18px;
             }
             button {
@@ -57,10 +63,15 @@
                 padding: 10px 20px;
                 margin-right: 12px;
                 border-radius: 25px;
+                height: 50px;
+                display: block;
+                grid-column-start: 2;
 
                 background-color: #d34c04;
                 color: white;
                 opacity: 100%;
+                justify-self: end;
+                align-self: end;
             }
         }
     }

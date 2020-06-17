@@ -6,6 +6,8 @@ import "./App.scss";
 import TopNav from "./Container/TopNav/TopNav";
 import About from "./Container/About/About";
 import GuestBook from "./Container/GuestBook/Guestbook";
+import Tour from "./Container/Tour/Tour";
+import SidebarNav from "./Container/Tour/SidebarNav";
 
 function App() {
     return (
@@ -13,7 +15,9 @@ function App() {
             <div id="logo" style={{ backgroundImage: `url(${logo})` }}></div>
             <TopNav></TopNav>
             {/* <About /> */}
-            <GuestBook></GuestBook>
+            <SidebarNav></SidebarNav>
+            <Tour></Tour>
+            {/* <GuestBook></GuestBook> */}
             <div id="overlay">
                 본 웹사이트는 데스크탑 전체화면 뷰에 최적화되어 있습니다.
                 <br />

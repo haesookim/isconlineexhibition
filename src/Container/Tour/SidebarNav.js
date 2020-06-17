@@ -1,9 +1,9 @@
 import React from "react";
 
-class Tour extends React.Component {
+class SidebarNav extends React.Component {
     render() {
         return <div></div>;
     }
 }
 
-export default Tour;
+export default SidebarNav;
