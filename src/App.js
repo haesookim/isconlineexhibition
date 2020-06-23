@@ -9,6 +9,7 @@ import GuestBook from "./Container/GuestBook/Guestbook";
 import Tour from "./Container/Tour/Tour";
 import SidebarNav from "./Container/Tour/SidebarNav";
 import Interaction from "./Container/Interaction/Interaction";
+import Event from "./Container/Event/Event";
 import Assignment from "./Component/Assignment/Assignment";
 
 class App extends React.Component {
@@ -33,6 +34,7 @@ class App extends React.Component {
                     <Switch>
                         <Route path="/about" exact component={About} />
                         <Route path="/tour/:id" exact component={Tour} />
+                        <Route path="/event" exact component={Event} />
                         <Route path="/guestbook" exact component={GuestBook} />
                         <Route path="/" exact component={About} />
                     </Switch>

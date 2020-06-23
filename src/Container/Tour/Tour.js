@@ -6,7 +6,7 @@ class Tour extends React.Component {
         return (
             <div id="mainTour">
                 <div className="location">
-                    <Router></Router>
+                    <Router history={this.props.history}></Router>
                 </div>
 
                 <div id="carousel">

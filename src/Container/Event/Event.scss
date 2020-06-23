@@ -1,0 +1,18 @@
+#event {
+    .event-item {
+        display: grid;
+        grid-template-columns: 1fr 160px;
+        .text-wrapper {
+            .title {
+                font-size: 1em;
+                font-weight: 700;
+            }
+            .text {
+                font-size: 1em;
+            }
+        }
+        &#second {
+            grid-template-columns: 160px 1fr;
+        }
+    }
+}

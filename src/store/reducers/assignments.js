@@ -1,10 +1,9 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
-    subjectList: [
-        /*copy from TodoList!*/
-    ],
-    selectedSubject: null,
+    currentFloor: "1F",
+    subjectList: ["창의연구실습", "HCI 이론 및 실습"],
+    selectedSubject: "창의연구실습",
     selectedAssignment: null,
 };
 const reducer = (state = initialState, action) => {
