@@ -6,6 +6,7 @@ class NavItem extends React.Component {
             <div
                 className="nav-item"
                 id={this.props.selected ? "selected" : ""}
+                onClick={this.props.onClick}
             >
                 {this.props.name}
             </div>

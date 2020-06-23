@@ -1,0 +1,28 @@
+#sidebar {
+    width: 250px;
+    justify-self: end;
+    padding-bottom: 65px;
+    display: grid;
+    #classinfo {
+        height: 140px;
+        border-radius: 22px;
+        border: #ba4100 solid 2px;
+        align-self: end;
+    }
+}
+
+#mainTour {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    padding-bottom: 65px;
+    .location {
+        min-width: 540px;
+    }
+    #carousel {
+        align-self: center;
+        margin-bottom: 65px;
+        .floor {
+            text-align: center;
+        }
+    }
+}
