@@ -1,27 +1,23 @@
 import React from "react";
-import left from "./mac_left.png";
-import right from "./mac_right.png";
+import left from "./poster_y_left.png";
+import right from "./poster_y_right.png";
 import "./elementStyles.scss";
-class MacElement extends React.Component {
+
+class PosterElement extends React.Component {
     styleLeft = {
         backgroundImage: `url(${left})`,
     };
     styleRight = {
         backgroundImage: `url(${right})`,
     };
-    loadAssignment = () => {
-        //let history = useHistory();
-        //history.push(window.location.pathname + "list");
-    };
     render() {
         return (
             <div
+                className="poster"
                 style={this.props.isFlipped ? this.styleLeft : this.styleRight}
-                className="mac"
-                onClick={this.loadAssignment}
             ></div>
         );
     }
 }
 
-export default MacElement;
+export default PosterElement;

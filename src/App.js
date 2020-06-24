@@ -10,6 +10,7 @@ import Tour from "./Container/Tour/Tour";
 import SidebarNav from "./Container/Tour/SidebarNav";
 import Interaction from "./Container/Interaction/Interaction";
 import Event from "./Container/Event/Event";
+import AssignmentList from "./Component/Assignment/AssignmentList";
 import Assignment from "./Component/Assignment/Assignment";
 
 class App extends React.Component {
@@ -29,11 +30,13 @@ class App extends React.Component {
                 <TopNav history={this.props.history}></TopNav>
                 <BrowserRouter history={this.props.history}>
                     <Route path="/tour/:id" exact component={SidebarNav} />
+                    <Route path="/tour/:id/:id" component={SidebarNav} />
                 </BrowserRouter>
                 <BrowserRouter history={this.props.history}>
                     <Switch>
                         <Route path="/about" exact component={About} />
-                        <Route path="/tour/:id" exact component={Tour} />
+                        <Route path="/tour/:id/" exact component={Tour} />
+                        <Route path="/tour/:id/:id" component={Tour} />
                         <Route path="/event" exact component={Event} />
                         <Route path="/guestbook" exact component={GuestBook} />
                         <Route path="/" exact component={About} />
@@ -41,6 +44,14 @@ class App extends React.Component {
                 </BrowserRouter>
                 <BrowserRouter history={this.props.history}>
                     <Route path="/interaction" exact component={Interaction} />
+                    <Route
+                        path="/tour/:id/:id/list"
+                        component={AssignmentList}
+                    />
+                    <Route
+                        path="/tour/:id/:id/list/:id"
+                        component={Assignment}
+                    />
                 </BrowserRouter>
                 <div id="overlay">
                     본 웹사이트는 데스크탑 전체화면 뷰에 최적화되어 있습니다.
