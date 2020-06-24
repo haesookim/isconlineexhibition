@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./images/logo.png";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
-import "./App.scss";
+//import "./App.scss";
 
 import TopNav from "./Container/TopNav/TopNav";
 import About from "./Container/About/About";
@@ -22,41 +22,9 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <div
-                    id="logo"
-                    onClick={() => this.onClickLogo()}
-                    style={{ backgroundImage: `url(${logo})` }}
-                ></div>
-                <TopNav history={this.props.history}></TopNav>
-                <BrowserRouter history={this.props.history}>
-                    <Route path="/tour/:id" exact component={SidebarNav} />
-                    <Route path="/tour/:id/:id" component={SidebarNav} />
-                </BrowserRouter>
-                <BrowserRouter history={this.props.history}>
-                    <Switch>
-                        <Route path="/about" exact component={About} />
-                        <Route path="/tour/:id/" exact component={Tour} />
-                        <Route path="/tour/:id/:id" component={Tour} />
-                        <Route path="/event" exact component={Event} />
-                        <Route path="/guestbook" exact component={GuestBook} />
-                        <Route path="/" exact component={About} />
-                    </Switch>
-                </BrowserRouter>
-                <BrowserRouter history={this.props.history}>
-                    <Route path="/interaction" exact component={Interaction} />
-                    <Route
-                        path="/tour/:id/:id/list"
-                        component={AssignmentList}
-                    />
-                    <Route
-                        path="/tour/:id/:id/list/:id"
-                        component={Assignment}
-                    />
-                </BrowserRouter>
                 <div id="overlay">
-                    본 웹사이트는 데스크탑 전체화면 뷰에 최적화되어 있습니다.
-                    <br />
-                    컴퓨터로 접속하거나, 화면 가로를 늘려 주세요.
+                    정보문화학 과제전은 6월 29일 월요일 오전 10시에 정식
+                    오픈합니다!
                 </div>
             </div>
         );
