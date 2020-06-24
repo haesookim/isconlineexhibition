@@ -10,15 +10,15 @@ class MacElement extends React.Component {
         backgroundImage: `url(${right})`,
     };
     loadAssignment = () => {
-        //let history = useHistory();
-        //history.push(window.location.pathname + "list");
+        this.props.history.push(window.location.pathname + "list");
     };
     render() {
+        const style = this.props.isFlipped ? this.styleLeft : this.styleRight;
         return (
             <div
-                style={this.props.isFlipped ? this.styleLeft : this.styleRight}
+                style={Object.assign(style, this.props.style)}
                 className="mac"
-                onClick={this.loadAssignment}
+                onClick={() => this.loadAssignment}
             ></div>
         );
     }
