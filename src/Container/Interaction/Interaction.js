@@ -5,6 +5,8 @@ import infodesk from "./infodesk.png";
 
 import minimi from "./minimi_prof.png";
 import arrow from "./arrow.png";
+import thermometer from "./thermometer.png";
+import sanitizer from "./sanitizer.png";
 
 class Interaction extends React.Component {
     state = {
@@ -41,6 +43,17 @@ class Interaction extends React.Component {
                 style={{ backgroundImage: `url(${infodesk})` }}
             >
                 <div id="dark">
+                    <img
+                        id="interaction-image"
+                        onClick={() => this.loadText(this.state.interactionNum)}
+                        src={
+                            this.state.interactionNum === 2
+                                ? thermometer
+                                : this.state.interactionNum === 4
+                                ? sanitizer
+                                : null
+                        }
+                    ></img>
                     <div id="textbox">
                         <div className="text">{this.state.currentText}</div>
                         <img

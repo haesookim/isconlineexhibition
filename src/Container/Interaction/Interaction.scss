@@ -16,6 +16,12 @@
         display: grid;
         grid-template-rows: 1fr 270px;
         grid-template-columns: 1fr 200px;
+        #interaction-image {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            align-self: center;
+            justify-self: center;
+        }
         #textbox {
             grid-row: 2;
             margin: 0;

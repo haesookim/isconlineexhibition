@@ -24,12 +24,12 @@
             grid-template-areas: "item item " "item item ";
             .assignment-item {
                 background-color: aqua;
-                opacity: 0;
+                opacity: 0%;
                 transition: ease-in-out all 0.3s;
 
                 &:hover {
                     background-color: rgb(0, 0, 0);
-                    opacity: 1;
+                    opacity: 100%;
                     .title {
                         font-size: 16px;
                     }

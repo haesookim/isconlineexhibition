@@ -1,5 +1,10 @@
-export const GET_SUBJECTLIST = "GET_SUBJECTLIST";
-export const GET_ASSIGNLIST = "GET_ASSIGNLIST";
-export const GET_ASSIGNMENT = "GET_ASSIGNMENT";
-export const LIKE = "LIKE";
-export const ADD_COMMENT = "ADD_COMMENT";
+const actionTypes = {
+    GET_FLOOR: "GET_FLOOR",
+    GET_SUBJECTLIST: "GET_SUBJECTLIST",
+    GET_ASSIGNLIST: "GET_ASSIGNLIST",
+    GET_ASSIGNMENT: "GET_ASSIGNMENT",
+    LIKE: "LIKE",
+    ADD_COMMENT: "ADD_COMMENT",
+};
+
+export default actionTypes;
