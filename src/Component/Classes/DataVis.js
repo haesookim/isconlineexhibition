@@ -1,42 +1,42 @@
 import React from "react";
 import "./Classes.scss";
 
-import crp from "./1f_classroom1.png";
+import crp from "./2F_hall1.png";
 import Mac from "./../MacElement";
 
-class HCI extends React.Component {
+class DataVis extends React.Component {
     state = {
         macs: [
             {
                 key: 1,
                 flipped: true,
                 style: {
-                    left: 308,
-                    top: 162,
+                    left: 194,
+                    top: 161,
                 },
             },
             {
                 key: 2,
                 flipped: true,
                 style: {
-                    left: 360,
-                    top: 188,
+                    left: 246,
+                    top: 187,
                 },
             },
             {
                 key: 3,
                 flipped: true,
                 style: {
-                    left: 450,
-                    top: 236,
+                    left: 325,
+                    top: 228,
                 },
             },
             {
                 key: 4,
                 flipped: true,
                 style: {
-                    left: 502,
-                    top: 262,
+                    left: 378,
+                    top: 255,
                 },
             },
         ],
@@ -60,4 +60,4 @@ class HCI extends React.Component {
     }
 }
 
-export default HCI;
+export default DataVis;

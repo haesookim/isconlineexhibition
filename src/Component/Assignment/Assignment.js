@@ -1,9 +1,15 @@
 import React from "react";
 import background from "./background_mac.png";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./Assignment.scss";
 
 class Assignment extends React.Component {
+    onClickClose = () => {
+        //this.props.history.push(window.location.pathname.replace("/list", ""));
+        window.location.reload();
+    };
     render() {
         return (
             <div id="assignment">
@@ -12,6 +18,9 @@ class Assignment extends React.Component {
                     id="pc"
                     style={{ backgroundImage: "url(" + background + ")" }}
                 >
+                    <div id="closebutton" onClick={() => this.onClickClose()}>
+                        <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
+                    </div>
                     <div id="container">
                         <div className="top">
                             <div id="assign-title">과제 제목</div>

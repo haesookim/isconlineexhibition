@@ -1,42 +1,50 @@
 import React from "react";
 import "./Classes.scss";
 
-import crp from "./1f_classroom1.png";
+import crp from "./2f_gamee.png";
 import Mac from "./../MacElement";
 
-class HCI extends React.Component {
+class IGD extends React.Component {
     state = {
         macs: [
             {
                 key: 1,
-                flipped: true,
+                flipped: false,
                 style: {
-                    left: 308,
-                    top: 162,
+                    left: 118,
+                    top: 188,
                 },
             },
             {
                 key: 2,
-                flipped: true,
+                flipped: false,
                 style: {
-                    left: 360,
-                    top: 188,
+                    left: 170,
+                    top: 162,
                 },
             },
             {
                 key: 3,
                 flipped: true,
                 style: {
-                    left: 450,
-                    top: 236,
+                    left: 388,
+                    top: 182,
                 },
             },
             {
                 key: 4,
                 flipped: true,
                 style: {
-                    left: 502,
-                    top: 262,
+                    left: 472,
+                    top: 224,
+                },
+            },
+            {
+                key: 5,
+                flipped: true,
+                style: {
+                    left: 524,
+                    top: 250,
                 },
             },
         ],
@@ -60,4 +68,4 @@ class HCI extends React.Component {
     }
 }
 
-export default HCI;
+export default IGD;

@@ -3,7 +3,6 @@ import "./Classes.scss";
 
 import crp from "./1f_glassroom.png";
 import Mac from "./../MacElement";
-import Poster from "./../PosterElement";
 
 class CRP extends React.Component {
     state = {
@@ -46,6 +45,7 @@ class CRP extends React.Component {
         const mac = this.state.macs.map((item) => {
             return (
                 <Mac
+                    history={this.props.history}
                     key={item.key}
                     isFlipped={item.flipped}
                     style={item.style}

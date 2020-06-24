@@ -1,42 +1,58 @@
 import React from "react";
 import "./Classes.scss";
 
-import crp from "./1f_classroom1.png";
+import crp from "./3f_lab_front.png";
 import Mac from "./../MacElement";
 
-class HCI extends React.Component {
+class Dt4C extends React.Component {
     state = {
         macs: [
             {
                 key: 1,
-                flipped: true,
+                flipped: false,
                 style: {
-                    left: 308,
-                    top: 162,
+                    left: 188,
+                    top: 224,
                 },
             },
             {
                 key: 2,
-                flipped: true,
+                flipped: false,
                 style: {
-                    left: 360,
-                    top: 188,
+                    left: 242,
+                    top: 196,
                 },
             },
             {
                 key: 3,
                 flipped: true,
                 style: {
-                    left: 450,
-                    top: 236,
+                    left: 404,
+                    top: 218,
                 },
             },
             {
                 key: 4,
                 flipped: true,
                 style: {
-                    left: 502,
-                    top: 262,
+                    left: 458,
+                    top: 244,
+                },
+            },
+            {
+                key: 5,
+                flipped: true,
+                style: {
+                    left: 530,
+                    top: 276,
+                },
+            },
+            {
+                key: 6,
+                flipped: true,
+                style: {
+                    left: 584,
+                    top: 304,
                 },
             },
         ],
@@ -60,4 +76,4 @@ class HCI extends React.Component {
     }
 }
 
-export default HCI;
+export default Dt4C;

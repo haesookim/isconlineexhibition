@@ -3,22 +3,23 @@ import left from "./mac_left.png";
 import right from "./mac_right.png";
 import "./elementStyles.scss";
 class MacElement extends React.Component {
-    styleLeft = {
-        backgroundImage: `url(${left})`,
-    };
-    styleRight = {
-        backgroundImage: `url(${right})`,
-    };
     loadAssignment = () => {
-        this.props.history.push(window.location.pathname + "list");
+        this.props.history.push(window.location.pathname + "/list");
+        window.location.reload();
     };
     render() {
-        const style = this.props.isFlipped ? this.styleLeft : this.styleRight;
+        let styleLeft = {
+            backgroundImage: `url(${left})`,
+        };
+        let styleRight = {
+            backgroundImage: `url(${right})`,
+        };
+        const style = this.props.isFlipped ? styleLeft : styleRight;
         return (
             <div
                 style={Object.assign(style, this.props.style)}
                 className="mac"
-                onClick={() => this.loadAssignment}
+                onClick={() => this.loadAssignment()}
             ></div>
         );
     }

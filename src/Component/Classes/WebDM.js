@@ -1,42 +1,42 @@
 import React from "react";
 import "./Classes.scss";
 
-import crp from "./1f_classroom1.png";
+import crp from "./3f_lab_back.png";
 import Mac from "./../MacElement";
 
-class HCI extends React.Component {
+class WebDM extends React.Component {
     state = {
         macs: [
             {
                 key: 1,
-                flipped: true,
+                flipped: false,
                 style: {
-                    left: 308,
-                    top: 162,
+                    left: 54,
+                    top: 219,
                 },
             },
             {
                 key: 2,
-                flipped: true,
+                flipped: false,
                 style: {
-                    left: 360,
-                    top: 188,
+                    left: 112,
+                    top: 189,
                 },
             },
             {
                 key: 3,
                 flipped: true,
                 style: {
-                    left: 450,
-                    top: 236,
+                    left: 382,
+                    top: 179,
                 },
             },
             {
                 key: 4,
                 flipped: true,
                 style: {
-                    left: 502,
-                    top: 262,
+                    left: 436,
+                    top: 209,
                 },
             },
         ],
@@ -60,4 +60,4 @@ class HCI extends React.Component {
     }
 }
 
-export default HCI;
+export default WebDM;
