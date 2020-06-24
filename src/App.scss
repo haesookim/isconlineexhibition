@@ -1,4 +1,12 @@
 .App {
+    #temp {
+        background-image: url("./temp.jpeg");
+        background-color: #1c1c1c;
+        background-size: contain;
+        width: 100vw;
+        height: 100vh;
+        background-repeat: no-repeat;
+    }
     font-family: "Noto Sans KR", "sans-serif";
     display: grid;
     column-gap: 45px;
