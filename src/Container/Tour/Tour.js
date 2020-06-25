@@ -30,16 +30,16 @@ class Tour extends React.Component {
         ],
         "2F": [
             {
-                name: "정보문화기술입문",
-                desc:
-                    "요즘엔 코딩을 알아야 디지털 세상에서 인사라도 할 수 있다는데… Hello World는 부담스러운 당신에게 바치는 따뜻한 찬사 “Hello Processing!” 프로세싱으로 배우는 프로그래밍의 기초이자 정보문화학을 여행하는 초심자들을 위한 입문서.",
-                link: "IIT",
-            },
-            {
                 name: "게임의 이해",
                 desc:
                     "기간은 15주. 목표는 게임 하나를 제작해내는 것.날이 갈수록 낯설었던 팀원들과 유니티, 구글 드라이브가 익숙해지는 게 느껴지네요!하지만 어김없이 마지막 날에는 이런 말이 들립니다.“배 교수님… 저희에게 제발 한 주만 더…”",
                 link: "IGD",
+            },
+            {
+                name: "정보문화기술입문",
+                desc:
+                    "요즘엔 코딩을 알아야 디지털 세상에서 인사라도 할 수 있다는데… Hello World는 부담스러운 당신에게 바치는 따뜻한 찬사 “Hello Processing!” 프로세싱으로 배우는 프로그래밍의 기초이자 정보문화학을 여행하는 초심자들을 위한 입문서.",
+                link: "IIT",
             },
             {
                 name: "비주얼라이제이션",
@@ -83,10 +83,30 @@ class Tour extends React.Component {
             this.state[floorText],
             this.state[floorText][0],
         );
-        this.props.history.push("/tour/" + floorText);
+        this.props.history.push(
+            "/tour/" + floorText + "/" + this.state[floorText][0].link,
+        );
+    };
+
+    setSidebar = () => {
+        let pathArray = window.location.pathname.split("/");
+        if (pathArray[2] !== this.props.currentFloor) {
+            this.props.onChangeFloor(
+                pathArray[2],
+                this.state[pathArray[2]],
+                this.state[pathArray[2]][0],
+            );
+        }
+        if (pathArray[3] !== this.props.selectedSubject.link) {
+            let filtered = this.state[pathArray[2]].filter((item) => {
+                return item.link === pathArray[3];
+            });
+            this.props.onSelectSubject(filtered[0]);
+        }
     };
 
     render() {
+        this.setSidebar();
         const classList = this.props.subjectList.map((item) => {
             return (
                 <div onClick={() => this.loadClass(item)} key={item.name}>

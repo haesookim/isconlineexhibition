@@ -11,16 +11,16 @@ class IIT extends React.Component {
                 key: 1,
                 flipped: true,
                 style: {
-                    left: 226,
-                    top: 343,
+                    left: 343,
+                    top: 226,
                 },
             },
             {
                 key: 2,
                 flipped: true,
                 style: {
-                    left: 286,
-                    top: 463,
+                    left: 463,
+                    top: 286,
                 },
             },
         ],
