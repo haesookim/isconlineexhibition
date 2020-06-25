@@ -29,13 +29,17 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         // we will handle actions via switch statement
         case actionTypes.GET_FLOOR:
-            return { ...state, currentFloor: action.floor };
+            return {
+                ...state,
+                currentFloor: action.floor,
+                subjectList: action.subjectList,
+                selectedSubject: action.selectedSubject,
+            };
         case actionTypes.GET_SUBJECTLIST:
             // as React, do not mutate state directly, make new object
 
             return state;
         case actionTypes.GET_SUBJECT:
-            console.log(action.subject);
             return { ...state, selectedSubject: action.subject };
         default:
             break;

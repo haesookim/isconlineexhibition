@@ -45,7 +45,7 @@ class Tour extends React.Component {
                 name: "비주얼라이제이션",
                 desc:
                     "어떻게 하면 사람들이 쉽고 정확하게 이해할 수 있도록 데이터를 시각화할 수 있을까요? 또 왜곡된 그래프에 속지 않으려면 어떻게 해야할까요? 관악의 비주얼, 비주얼라이제이션에서 배워보세요!",
-                link: "InfoViz",
+                link: "DataVis",
             },
         ],
         "3F": [
@@ -59,13 +59,13 @@ class Tour extends React.Component {
                 name: "웹프로그래밍개론",
                 desc:
                     "HTML, CSS, Ruby, Rails를 한 방에 배울 수 있는 관악 유일(아닐 수도 있음)의 강좌가 있다?! 웹프로그래밍개론을 듣고나면 당신도 웹 프로그래밍 마스터!",
-                link: "IWP",
+                link: "WebDM",
             },
             {
                 name: "디지털 음향의 이해",
                 desc:
                     "왜 지그재그 그림에서 소리가 나지?하루도 빼놓지 않고 듣게 되는 디지털 음향들, 원리와 제작 방식이 궁금하지 않으신가요?디지털 음향의 이해에서 여러 소리를 직접 녹음하고 편집해보세요!",
-                link: "UDM",
+                link: "WebDM",
             },
         ],
     };
@@ -75,18 +75,19 @@ class Tour extends React.Component {
         this.props.history.push(
             "/tour/" + this.props.currentFloor + "/" + dest.link,
         );
-
-        //window.location.reload();
-        // }, 200);
     }
 
     onClickFloor = (floorText) => {
-        this.props.onChangeFloor(floorText);
+        this.props.onChangeFloor(
+            floorText,
+            this.state[floorText],
+            this.state[floorText][0],
+        );
         this.props.history.push("/tour/" + floorText);
     };
 
     render() {
-        const classList = this.state[this.props.currentFloor].map((item) => {
+        const classList = this.props.subjectList.map((item) => {
             return (
                 <div onClick={() => this.loadClass(item)} key={item.name}>
                     {item.name}
@@ -121,7 +122,7 @@ class Tour extends React.Component {
                                 <Route path="/tour/2F/IIT" component={IIT} />
                                 <Route path="/tour/2F/IGD" component={IGD} />
                                 <Route
-                                    path="/tour/2F/Dataviz"
+                                    path="/tour/2F/Datavis"
                                     component={Datavis}
                                 />
                                 {/* <Route path="/tour/2F/Cinema" component={Cinema} /> */}
@@ -131,6 +132,8 @@ class Tour extends React.Component {
                                     component={WebDM}
                                 />
                                 <Redirect path="/tour/1F" to="/tour/1F/CRP" />
+                                <Redirect path="/tour/2F" to="/tour/2F/IGD" />
+                                <Redirect path="/tour/3F" to="/tour/3F/Dt4C" />
                             </Switch>
                         </Router>
                     </div>
@@ -175,14 +178,20 @@ class Tour extends React.Component {
 const mapStateToProps = (state) => {
     return {
         currentFloor: state.assign.currentFloor,
+        subjectList: state.assign.subjectList,
         selectedSubject: state.assign.selectedSubject,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onChangeFloor: (num) => {
-            dispatch({ type: actionTypes.GET_FLOOR, floor: num });
+        onChangeFloor: (num, list, subj) => {
+            dispatch({
+                type: actionTypes.GET_FLOOR,
+                floor: num,
+                subjectList: list,
+                selectedSubject: subj,
+            });
         },
         onSelectSubject: (subject) => {
             dispatch({

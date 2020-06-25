@@ -111,14 +111,14 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        // onChangeFloor: (num) => {
-        //     dispatch({
-        //         type: actionTypes.GET_FLOOR,
-        //         floor: num,
-        //         subjectList: this.state[num],
-        //         selectedSubject: this.state[num][0],
-        //     });
-        // },
+        onChangeFloor: (num) => {
+            dispatch({
+                type: actionTypes.GET_FLOOR,
+                floor: num,
+                subjectList: this.state[num],
+                selectedSubject: this.state[num][0],
+            });
+        },
         onSelectSubject: (subject) => {
             dispatch({
                 type: actionTypes.GET_SUBJECT,
