@@ -1,7 +1,13 @@
 #event {
+    //row-gap: ;
+    display: block;
     .event-item {
+        height: fit-content;
         display: grid;
+        margin-bottom: 20px;
         grid-template-columns: 1fr 160px;
+
+        column-gap: 20px;
         .text-wrapper {
             .title {
                 font-size: 1em;
@@ -10,6 +16,10 @@
             .text {
                 font-size: 1em;
             }
+        }
+        .event-image {
+            max-width: 160px;
+            object-fit: contain;
         }
         &#second {
             grid-template-columns: 160px 1fr;

@@ -1,5 +1,9 @@
 import React from "react";
 
+import neowiz from "./neowiz_logo.png";
+import poster from "./poster.png";
+import event from "./box_cat.png";
+
 import "./Event.scss";
 
 class Event extends React.Component {
@@ -18,10 +22,14 @@ class Event extends React.Component {
                             온라인으로 진행되니 편하게 놀러오세요~!
                         </div>
                     </div>
-                    <img className="event-image" />
+                    <img
+                        className="event-image"
+                        src={neowiz}
+                        alt="neowiz logo"
+                    />
                 </div>
                 <div className="event-item" id="second">
-                    <img className="event-image" />
+                    <img className="event-image" src={poster} alt="poster" />
                     <div className="text-wrapper">
                         <div className="title">#2 인스타그램 스토리 이벤트</div>
                         <div className="text">
@@ -49,7 +57,7 @@ class Event extends React.Component {
                             경품 받아가세요!
                         </div>
                     </div>
-                    <img className="event-image" />
+                    <img className="event-image" src={event} />
                 </div>
             </div>
         );
