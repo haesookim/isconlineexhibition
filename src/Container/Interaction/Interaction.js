@@ -33,7 +33,7 @@ class Interaction extends React.Component {
     };
 
     onClickSkip = () => {
-        this.props.history.push("/tour/1F");
+        this.props.history.push("/tour/1F/CRP");
         window.location.reload();
     };
     render() {

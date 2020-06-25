@@ -90,23 +90,29 @@ class Tour extends React.Component {
 
     setSidebar = () => {
         let pathArray = window.location.pathname.split("/");
-        if (pathArray[2] !== this.props.currentFloor) {
-            this.props.onChangeFloor(
-                pathArray[2],
-                this.state[pathArray[2]],
-                this.state[pathArray[2]][0],
-            );
-        }
-        if (pathArray[3] !== this.props.selectedSubject.link) {
-            let filtered = this.state[pathArray[2]].filter((item) => {
-                return item.link === pathArray[3];
-            });
-            this.props.onSelectSubject(filtered[0]);
+        if (
+            this.props.selectedSubject !== null &&
+            this.props.selectedSubject !== undefined
+        ) {
+            if (pathArray[2] !== this.props.currentFloor) {
+                this.props.onChangeFloor(
+                    pathArray[2],
+                    this.state[pathArray[2]],
+                    this.state[pathArray[2]][0],
+                );
+            }
+            if (pathArray[3] !== this.props.selectedSubject.link) {
+                let filtered = this.state[pathArray[2]].filter((item) => {
+                    return item.link === pathArray[3];
+                });
+                this.props.onSelectSubject(filtered[0]);
+            }
+        } else {
+            this.props.onSelectSubject(this.state["1F"][0].link);
         }
     };
 
     render() {
-        this.setSidebar();
         const classList = this.props.subjectList.map((item) => {
             return (
                 <div onClick={() => this.loadClass(item)} key={item.name}>
@@ -154,6 +160,7 @@ class Tour extends React.Component {
                                 <Redirect path="/tour/1F" to="/tour/1F/CRP" />
                                 <Redirect path="/tour/2F" to="/tour/2F/IGD" />
                                 <Redirect path="/tour/3F" to="/tour/3F/Dt4C" />
+                                <Redirect path="/tour" to="/tour/1F/CRP" />
                             </Switch>
                         </Router>
                     </div>

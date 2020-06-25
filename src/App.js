@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./images/logo.png";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 import "./App.scss";
 
 import TopNav from "./Container/TopNav/TopNav";
@@ -31,11 +31,11 @@ class App extends React.Component {
                 <BrowserRouter history={this.props.history}>
                     <Switch>
                         <Route path="/about" exact component={About} />
-                        <Route path="/tour/:id/" exact component={Tour} />
-                        <Route path="/tour/:id/:id" component={Tour} />
+                        <Route path="/tour" component={Tour} />
                         <Route path="/event" exact component={Event} />
                         <Route path="/guestbook" exact component={GuestBook} />
                         <Route path="/" exact component={About} />
+                        <Redirect exact to="/" />
                     </Switch>
                 </BrowserRouter>
                 <BrowserRouter history={this.props.history}>
