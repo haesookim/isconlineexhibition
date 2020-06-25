@@ -1,10 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
+import actionTypes from "../../store/actions/actionTypes";
 
 import "./Tour.scss";
 
 class SidebarNav extends React.Component {
     state = {
-        "1": [
+        "1F": [
             {
                 name: "창의연구실습",
                 desc:
@@ -18,7 +20,7 @@ class SidebarNav extends React.Component {
                 link: "HCI",
             },
         ],
-        "2": [
+        "2F": [
             {
                 name: "정보문화기술입문",
                 desc:
@@ -38,7 +40,7 @@ class SidebarNav extends React.Component {
                 link: "InfoViz",
             },
         ],
-        "3": [
+        "3F": [
             {
                 name: "디자인 사고와 커뮤니케이션",
                 desc:
@@ -58,23 +60,19 @@ class SidebarNav extends React.Component {
                 link: "UDM",
             },
         ],
-        currentFloor: 1,
-        currentClass: {
-            name: "창의연구실습",
-            desc:
-                "알고 계셨습니까, 휴먼? AI는 이미 우리 사회 곳곳에 퍼져 있다는 것을…. 아무도 모르는 사이 우리의 삶을 이롭게 만들 수도, 통제할 수도 있는 AI. 어떻게 바라 보아야 할까요? 창의력 뿜뿜 사변적 디자인 프로젝트와 함께 고민해 보아요!",
-            link: "HCI",
-        },
     };
-    loadClass = (dest) => {
-        this.setState({ currentClass: dest });
+    loadClass(dest) {
+        this.props.onSelectSubject(dest);
+        // setTimeout(() => {
         this.props.history.push(
-            "/tour/" + this.state.currentFloor + "F/" + dest.link,
+            "/tour/" + this.props.currentFloor + "/" + dest.link,
         );
-        window.location.reload();
-    };
+
+        //window.location.reload();
+        // }, 200);
+    }
     render() {
-        const classList = this.state[this.state.currentFloor].map((item) => {
+        const classList = this.state[this.props.currentFloor].map((item) => {
             return (
                 <div onClick={() => this.loadClass(item)} key={item.name}>
                     {item.name}
@@ -86,14 +84,16 @@ class SidebarNav extends React.Component {
             <div id="sidebar">
                 <img alt="minimap"></img>
                 <div>
-                    <div>{this.state.currentFloor + "층 수업 목록"}</div>
+                    <div>{this.props.currentFloor + " 수업 목록"}</div>
                     <hr></hr>
                     <div id="classList">{classList}</div>
                 </div>
                 <div id="classinfo">
-                    <div className="title">{this.state.currentClass.name}</div>
+                    <div className="title">
+                        {this.props.selectedSubject.name}
+                    </div>
                     <div className="description">
-                        {this.state.currentClass.desc}
+                        {this.props.selectedSubject.desc}
                     </div>
                 </div>
             </div>
@@ -101,4 +101,31 @@ class SidebarNav extends React.Component {
     }
 }
 
-export default SidebarNav;
+const mapStateToProps = (state) => {
+    return {
+        currentFloor: state.assign.currentFloor,
+        selectedSubject: state.assign.selectedSubject,
+        subjectList: state.assign.subjectList,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        // onChangeFloor: (num) => {
+        //     dispatch({
+        //         type: actionTypes.GET_FLOOR,
+        //         floor: num,
+        //         subjectList: this.state[num],
+        //         selectedSubject: this.state[num][0],
+        //     });
+        // },
+        onSelectSubject: (subject) => {
+            dispatch({
+                type: actionTypes.GET_SUBJECT,
+                subject: subject,
+            });
+        },
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SidebarNav);

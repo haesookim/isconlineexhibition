@@ -2,11 +2,30 @@ import actionTypes from "../actions/actionTypes";
 
 const initialState = {
     currentFloor: "1F",
-    subjectList: ["창의연구실습", "HCI 이론 및 실습"],
-    selectedSubject: "창의연구실습",
+    subjectList: [
+        {
+            name: "창의연구실습",
+            desc:
+                "알고 계셨습니까, 휴먼? AI는 이미 우리 사회 곳곳에 퍼져 있다는 것을…. 아무도 모르는 사이 우리의 삶을 이롭게 만들 수도, 통제할 수도 있는 AI. 어떻게 바라 보아야 할까요? 창의력 뿜뿜 사변적 디자인 프로젝트와 함께 고민해 보아요!",
+            link: "CRP",
+        },
+        {
+            name: "HCI 이론 및 실습",
+            desc:
+                "HCI는 컴퓨터와 사람을 잇는 공부를 하는 학문! 이번 HCI 최종 과제는 챗봇 만들기였습니다. 사용자에게 꼭 맞춘 친절하고 재미있는 챗봇들을 구경하고 가세요!",
+            link: "HCI",
+        },
+    ],
+    selectedSubject: {
+        name: "창의연구실습",
+        desc:
+            "알고 계셨습니까, 휴먼? AI는 이미 우리 사회 곳곳에 퍼져 있다는 것을…. 아무도 모르는 사이 우리의 삶을 이롭게 만들 수도, 통제할 수도 있는 AI. 어떻게 바라 보아야 할까요? 창의력 뿜뿜 사변적 디자인 프로젝트와 함께 고민해 보아요!",
+        link: "CRP",
+    },
     selectedAssignment: null,
 };
-const mainReducer = (state = initialState, action) => {
+
+const reducer = (state = initialState, action) => {
     switch (action.type) {
         // we will handle actions via switch statement
         case actionTypes.GET_FLOOR:
@@ -15,9 +34,12 @@ const mainReducer = (state = initialState, action) => {
             // as React, do not mutate state directly, make new object
 
             return state;
-        case actionTypes.default:
+        case actionTypes.GET_SUBJECT:
+            console.log(action.subject);
+            return { ...state, selectedSubject: action.subject };
+        default:
             break;
     }
     return state;
 };
-export default mainReducer;
+export default reducer;

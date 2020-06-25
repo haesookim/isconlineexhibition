@@ -1,44 +1,54 @@
-#sidebar {
-    width: 250px;
-    justify-self: end;
-    padding-bottom: 65px;
+#wrapper {
+    grid-column-start: 1;
+    grid-column-end: 3;
     display: grid;
-    #classinfo {
-        //height: 140px;
-        padding: 20px;
-        border-radius: 22px;
-        border: #ba4100 solid 2px;
-        align-self: end;
-        .title {
-            margin-bottom: 5px;
-            font-size: 1rem;
-            font-weight: 700;
-        }
-        .description {
-            font-size: 0.8rem;
-            word-break: keep-all;
-        }
-    }
-}
+    width: 100%;
+    grid-area: "sidebar main";
 
-#mainTour {
-    display: grid;
-    grid-template-columns: 1fr 250px;
-    padding-bottom: 65px;
-    .location {
-        min-width: 540px;
-    }
-    #carousel {
-        align-self: center;
-        margin-bottom: 65px;
-        .floor {
-            text-align: center;
-            color: #c0c0c0;
-            font-size: 18px;
-            &.selected {
-                font-size: 24px;
+    column-gap: 45px;
+    grid-template-columns: 25% 1fr;
+    #sidebar {
+        width: 250px;
+        justify-self: end;
+        padding-bottom: 65px;
+        display: grid;
+        #classinfo {
+            //height: 140px;
+            padding: 20px;
+            border-radius: 22px;
+            border: #ba4100 solid 2px;
+            align-self: end;
+            .title {
+                margin-bottom: 5px;
+                font-size: 1rem;
                 font-weight: 700;
-                color: black;
+            }
+            .description {
+                font-size: 0.8rem;
+                word-break: keep-all;
+            }
+        }
+    }
+
+    #mainTour {
+        display: grid;
+        grid-template-columns: 1fr 250px;
+        padding-bottom: 65px;
+        .location {
+            min-width: 540px;
+        }
+        #carousel {
+            align-self: center;
+            margin-bottom: 65px;
+            .floor {
+                text-align: center;
+                color: #c0c0c0;
+                font-size: 18px;
+                &.selected {
+                    font-size: 24px;
+                    font-weight: 700;
+                    color: black;
+                }
             }
         }
     }

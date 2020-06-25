@@ -28,7 +28,10 @@ class Assignment extends React.Component {
                                 팀원, 팀원, 팀원, 팀원
                             </div>
                         </div>
-                        <img className="assignment"></img>
+                        <img
+                            className="assignment"
+                            alt="과제 메인 이미지"
+                        ></img>
                         <div className="info">
                             <div className="title">과제 설명</div>
                             <div className="content">과제 설명</div>
@@ -36,12 +39,12 @@ class Assignment extends React.Component {
                             <div className="content">과제 설명</div>
                             <div id="links">
                                 <div className="link">
-                                    <img></img>
-                                    <a>과제 자세히 보기</a>
+                                    <img alt="notion logo"></img>
+                                    <a href="">과제 자세히 보기</a>
                                 </div>
                                 <div className="link">
-                                    <img></img>
-                                    <a>공유하기</a>
+                                    <img alt="shar button"></img>
+                                    <a href="">공유하기</a>
                                 </div>
                             </div>
                         </div>

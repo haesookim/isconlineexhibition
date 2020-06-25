@@ -23,7 +23,7 @@ class Interaction extends React.Component {
         "tour 탭 옆의 event탭을 눌러서 꼭 확인해 주세요!",
     ];
     loadText = (count) => {
-        if (count == 5) {
+        if (count === 5) {
             this.onClickSkip();
         }
         this.setState({
@@ -45,6 +45,7 @@ class Interaction extends React.Component {
                 <div id="dark">
                     <img
                         id="interaction-image"
+                        alt="hand sanitizer and thermometer icon"
                         onClick={() => this.loadText(this.state.interactionNum)}
                         src={
                             this.state.interactionNum === 2
@@ -58,13 +59,14 @@ class Interaction extends React.Component {
                         <div className="text">{this.state.currentText}</div>
                         <img
                             id="controller"
+                            alt="next arrow"
                             src={arrow}
                             onClick={() =>
                                 this.loadText(this.state.interactionNum)
                             }
                         />
                     </div>
-                    <img id="npc" src={minimi} />
+                    <img id="npc" alt="character minimi" src={minimi} />
                     <div id="skip" onClick={() => this.onClickSkip}>
                         skip
                     </div>

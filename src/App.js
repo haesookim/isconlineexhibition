@@ -29,10 +29,6 @@ class App extends React.Component {
                 ></div>
                 <TopNav history={this.props.history}></TopNav>
                 <BrowserRouter history={this.props.history}>
-                    <Route path="/tour/:id" exact component={SidebarNav} />
-                    <Route path="/tour/:id/:id" component={SidebarNav} />
-                </BrowserRouter>
-                <BrowserRouter history={this.props.history}>
                     <Switch>
                         <Route path="/about" exact component={About} />
                         <Route path="/tour/:id/" exact component={Tour} />
