@@ -3,13 +3,13 @@
     align-self: end;
     .nav-item {
         font-size: 30px;
-        opacity: 45%;
+        opacity: 0.45;
         width: fit-content;
         margin-right: 67px;
         cursor: pointer;
         &#selected {
             text-decoration: underline;
-            opacity: 100%;
+            opacity: 1;
         }
     }
 }

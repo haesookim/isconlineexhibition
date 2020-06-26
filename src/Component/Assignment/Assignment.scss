@@ -35,7 +35,7 @@
             position: relative;
             .assignment-item {
                 background-color: aqua;
-                opacity: 0%;
+                opacity: 0;
                 transition: ease-in-out all 0.3s;
                 .title {
                     font-size: 16px;
@@ -54,7 +54,7 @@
 
                 &:hover {
                     background-color: rgb(0, 0, 0);
-                    opacity: 100%;
+                    opacity: 1;
                 }
             }
             #controls {
