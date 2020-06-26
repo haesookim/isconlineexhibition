@@ -115,7 +115,15 @@ class Tour extends React.Component {
     render() {
         const classList = this.props.subjectList.map((item) => {
             return (
-                <div onClick={() => this.loadClass(item)} key={item.name}>
+                <div
+                    onClick={() => this.loadClass(item)}
+                    key={item.name}
+                    id={
+                        this.props.selectedSubject.name === item.name
+                            ? "sel-subject"
+                            : ""
+                    }
+                >
                     {item.name}
                 </div>
             );

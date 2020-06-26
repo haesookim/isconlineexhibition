@@ -32,52 +32,85 @@
             grid-template-columns: 50% 50%;
             grid-template-rows: 1fr 1fr;
             grid-template-areas: "item item " "item item ";
+            position: relative;
             .assignment-item {
                 background-color: aqua;
                 opacity: 0%;
                 transition: ease-in-out all 0.3s;
+                .title {
+                    font-size: 16px;
+                    font-weight: 700;
+                    margin-top: 80px;
+                    color: white;
+                    margin: 60px auto 0;
+                    text-align: center;
+                }
+                .members {
+                    color: white;
+                    font-size: 12px;
+                    margin: 10px auto;
+                    text-align: center;
+                }
 
                 &:hover {
                     background-color: rgb(0, 0, 0);
                     opacity: 100%;
-                    .title {
-                        font-size: 16px;
+                }
+            }
+            #controls {
+                position: absolute;
+                right: -250px;
+                bottom: 20px;
+                display: flex;
+                align-items: center;
+                * {
+                    margin: 0 5px;
+                    font-size: 24px;
+                    color: #838381;
+                    font-weight: 700;
+                }
+                .button {
+                    cursor: pointer;
+                    &:hover {
+                        color: #424242;
                     }
                 }
             }
         }
         #container {
-            // width: 70%;
-            // height: 70%;
-            // margin: 5% auto;
+            width: 880px;
+            height: 400px;
+            margin: 60px 60px;
             display: grid;
             column-gap: 20px;
+            row-gap: 10px;
             grid-template-columns: 50% 50%;
-            grid-template-rows: 100px 1fr;
+            grid-template-rows: 70px 1fr;
             .top {
-                padding: 20px 5% 0;
                 display: flex;
                 align-items: flex-end;
                 grid-column-start: 1;
                 grid-column-end: 3;
 
                 #assign-title {
-                    font-size: 3em;
+                    font-size: 32px;
                     font-weight: 700;
                 }
                 #assign-members {
-                    font-size: 1.25em;
+                    font-size: 14px;
                     color: #c0c0c0;
                     margin-left: 20px;
                 }
             }
             .info {
                 .title {
-                    font-size: 1.25em;
+                    font-size: 14px;
                     font-weight: 700;
+                    margin-bottom: 5px;
                 }
                 .content {
-                    font-size: 1.25em;
+                    font-size: 14px;
+                    margin-bottom: 20px;
                 }
             }
         }

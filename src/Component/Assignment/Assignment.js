@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import background from "./background_mac.png";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,7 +8,12 @@ import "./Assignment.scss";
 
 class Assignment extends React.Component {
     onClickClose = () => {
-        //this.props.history.push(window.location.pathname.replace("/list", ""));
+        this.props.history.push(
+            "/tour/" +
+                this.props.currentFloor +
+                "/" +
+                this.props.selectedSubject.link,
+        );
         window.location.reload();
     };
     render() {
@@ -55,4 +61,12 @@ class Assignment extends React.Component {
     }
 }
 
-export default Assignment;
+const mapStateToProps = (state) => {
+    return {
+        currentFloor: state.assign.currentFloor,
+        subjectList: state.assign.subjectList,
+        selectedSubject: state.assign.selectedSubject,
+    };
+};
+
+export default connect(mapStateToProps)(Assignment);

@@ -67,7 +67,7 @@ class Interaction extends React.Component {
                         />
                     </div>
                     <img id="npc" alt="character minimi" src={minimi} />
-                    <div id="skip" onClick={() => this.onClickSkip}>
+                    <div id="skip" onClick={() => this.onClickSkip()}>
                         skip
                     </div>
                 </div>

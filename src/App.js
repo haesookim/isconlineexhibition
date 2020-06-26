@@ -42,10 +42,12 @@ class App extends React.Component {
                     <Route path="/interaction" exact component={Interaction} />
                     <Route
                         path="/tour/:id/:id/list"
+                        exact
                         component={AssignmentList}
                     />
                     <Route
                         path="/tour/:id/:id/list/:id"
+                        exact
                         component={Assignment}
                     />
                 </BrowserRouter>

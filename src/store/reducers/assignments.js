@@ -22,6 +22,50 @@ const initialState = {
             "알고 계셨습니까, 휴먼? AI는 이미 우리 사회 곳곳에 퍼져 있다는 것을…. 아무도 모르는 사이 우리의 삶을 이롭게 만들 수도, 통제할 수도 있는 AI. 어떻게 바라 보아야 할까요? 창의력 뿜뿜 사변적 디자인 프로젝트와 함께 고민해 보아요!",
         link: "CRP",
     },
+    assignmentList: [
+        {
+            index: 1,
+            image: "",
+            title: "과제 1",
+            members: "학생, 학생, 학생, 학생",
+        },
+        {
+            index: 2,
+            image: "",
+            title: "과제 1",
+            members: "학생, 학생, 학생, 학생",
+        },
+        {
+            index: 3,
+            image: "",
+            title: "과제 1",
+            members: "학생, 학생, 학생, 학생",
+        },
+        {
+            index: 4,
+            image: "",
+            title: "과제 1",
+            members: "학생, 학생, 학생, 학생",
+        },
+        {
+            index: 5,
+            image: "",
+            title: "과제 1",
+            members: "학생, 학생, 학생, 학생",
+        },
+        {
+            index: 6,
+            image: "",
+            title: "과제 1",
+            members: "학생, 학생, 학생, 학생",
+        },
+        {
+            index: 7,
+            image: "",
+            title: "과제 1",
+            members: "학생, 학생, 학생, 학생",
+        },
+    ],
     selectedAssignment: null,
 };
 
