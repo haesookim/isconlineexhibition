@@ -10,7 +10,11 @@ import Datavis from "../../Component/Classes/DataVis";
 import IGD from "../../Component/Classes/IGD";
 import WebDM from "../../Component/Classes/WebDM";
 import Dt4C from "../../Component/Classes/Dt4C";
-import SidebarNav from "./SidebarNav";
+
+import "./Tour.scss";
+import first from "./1f_mini.png";
+import second from "./2f_mini.png";
+import third from "./3f_mini.png";
 
 class Tour extends React.Component {
     state = {
@@ -20,12 +24,14 @@ class Tour extends React.Component {
                 desc:
                     "알고 계셨습니까, 휴먼? AI는 이미 우리 사회 곳곳에 퍼져 있다는 것을…. 아무도 모르는 사이 우리의 삶을 이롭게 만들 수도, 통제할 수도 있는 AI. 어떻게 바라 보아야 할까요? 창의력 뿜뿜 사변적 디자인 프로젝트와 함께 고민해 보아요!",
                 link: "CRP",
+                position: "1층 야외공간",
             },
             {
                 name: "HCI 이론 및 실습",
                 desc:
                     "HCI는 컴퓨터와 사람을 잇는 공부를 하는 학문! 이번 HCI 최종 과제는 챗봇 만들기였습니다. 사용자에게 꼭 맞춘 친절하고 재미있는 챗봇들을 구경하고 가세요!",
                 link: "HCI",
+                position: "1층 스튜디오",
             },
         ],
         "2F": [
@@ -34,18 +40,28 @@ class Tour extends React.Component {
                 desc:
                     "기간은 15주. 목표는 게임 하나를 제작해내는 것.날이 갈수록 낯설었던 팀원들과 유니티, 구글 드라이브가 익숙해지는 게 느껴지네요!하지만 어김없이 마지막 날에는 이런 말이 들립니다.“배 교수님… 저희에게 제발 한 주만 더…”",
                 link: "IGD",
+                position: "2층 테라스 부근",
             },
             {
                 name: "정보문화기술입문",
                 desc:
                     "요즘엔 코딩을 알아야 디지털 세상에서 인사라도 할 수 있다는데… Hello World는 부담스러운 당신에게 바치는 따뜻한 찬사 “Hello Processing!” 프로세싱으로 배우는 프로그래밍의 기초이자 정보문화학을 여행하는 초심자들을 위한 입문서.",
                 link: "IIT",
+                position: "2층 테라스 부근",
             },
             {
                 name: "비주얼라이제이션",
                 desc:
                     "어떻게 하면 사람들이 쉽고 정확하게 이해할 수 있도록 데이터를 시각화할 수 있을까요? 또 왜곡된 그래프에 속지 않으려면 어떻게 해야할까요? 관악의 비주얼, 비주얼라이제이션에서 배워보세요!",
                 link: "DataVis",
+                position: "2층 복도",
+            },
+            {
+                name: "디지털 영상 실습 1",
+                desc:
+                    "어떻게 하면 사람들이 쉽고 정확하게 이해할 수 있도록 데이터를 시각화할 수 있을까요? 또 왜곡된 그래프에 속지 않으려면 어떻게 해야할까요? 관악의 비주얼, 비주얼라이제이션에서 배워보세요!",
+                link: "DVP",
+                position: "2층 희관홀",
             },
         ],
         "3F": [
@@ -54,18 +70,21 @@ class Tour extends React.Component {
                 desc:
                     "최종... 진짜최종... 진짜최종_final... 디자인은 끝없는 개선과 반복의 연속입니다.디자인 사고와 커뮤니케이션에서는 데이터를 예술로 만들고, 디자인을 데이터로 만드는 데 어떤 것들이 필요한지 배우게 됩니다. 디자인을 넘어서, 예술을 만들어나가는 학생들의 작품을 구경해 보세요!",
                 link: "Dt4C",
+                position: "3층 랩실 앞쪽",
             },
             {
                 name: "웹프로그래밍개론",
                 desc:
                     "HTML, CSS, Ruby, Rails를 한 방에 배울 수 있는 관악 유일(아닐 수도 있음)의 강좌가 있다?! 웹프로그래밍개론을 듣고나면 당신도 웹 프로그래밍 마스터!",
                 link: "WebDM",
+                position: "3층 랩실 뒤쪽",
             },
             {
                 name: "디지털 음향의 이해",
                 desc:
                     "왜 지그재그 그림에서 소리가 나지?하루도 빼놓지 않고 듣게 되는 디지털 음향들, 원리와 제작 방식이 궁금하지 않으신가요?디지털 음향의 이해에서 여러 소리를 직접 녹음하고 편집해보세요!",
                 link: "WebDM",
+                position: "3층 랩실 뒤쪽",
             },
         ],
     };
@@ -91,7 +110,7 @@ class Tour extends React.Component {
     setSidebar = () => {
         let pathArray = window.location.pathname.split("/");
         if (
-            this.props.selectedSubject !== null &&
+            this.props.selectedSubject !== null ||
             this.props.selectedSubject !== undefined
         ) {
             if (pathArray[2] !== this.props.currentFloor) {
@@ -112,7 +131,57 @@ class Tour extends React.Component {
         }
     };
 
+    decideBackground = () => {
+        let image =
+            this.props.currentFloor === "1F"
+                ? first
+                : this.props.currentFloor === "2F"
+                ? second
+                : third;
+
+        return { backgroundImage: `url(${image})` };
+    };
+
+    decideLoc = () => {
+        let left = 0;
+        let top = 0;
+        switch (this.props.selectedSubject.link) {
+            case "HCI":
+                left = 40;
+                top = 29;
+                break;
+            case "CRP":
+                left = 85;
+                top = 89;
+                break;
+            case "IIT":
+                left = 18;
+                top = 123;
+                break;
+            case "IGD":
+                left = 126;
+                top = 68;
+                break;
+            case "DataVis":
+                left = 53;
+                top = 104;
+                break;
+            case "Dt4C":
+                left = 166;
+                top = 75;
+                break;
+            case "WebDM":
+                left = 49;
+                top = 61;
+                break;
+            default:
+                break;
+        }
+        return { left: left, top: top };
+    };
+
     render() {
+        this.setSidebar();
         const classList = this.props.subjectList.map((item) => {
             return (
                 <div
@@ -132,7 +201,26 @@ class Tour extends React.Component {
         return (
             <div id="wrapper">
                 <div id="sidebar">
-                    <img alt="minimap"></img>
+                    <div id="maploc">
+                        <div
+                            id="minimap"
+                            style={{
+                                backgroundImage:
+                                    "url(" +
+                                    (this.props.currentFloor === "1F"
+                                        ? first
+                                        : this.props.currentFloor === "2F"
+                                        ? second
+                                        : third) +
+                                    ")",
+                            }}
+                        >
+                            <div id="loc-circle" style={this.decideLoc()}></div>
+                        </div>
+                        <div id="maptext">
+                            {this.props.selectedSubject.position}
+                        </div>
+                    </div>
                     <div>
                         <div>{this.props.currentFloor + " 수업 목록"}</div>
                         <hr></hr>

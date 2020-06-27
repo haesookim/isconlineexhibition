@@ -1,6 +1,7 @@
 import React from "react";
 import "./Classes.scss";
 
+import headphoneMac from "./../mac_headphone.png";
 import crp from "./3f_lab_back.png";
 import Mac from "./../MacElement";
 
@@ -31,14 +32,14 @@ class WebDM extends React.Component {
                     top: 179,
                 },
             },
-            {
-                key: 4,
-                flipped: true,
-                style: {
-                    left: 436,
-                    top: 209,
-                },
-            },
+            // {
+            //     key: 4,
+            //     flipped: true,
+            //     style: {
+            //         left: 436,
+            //         top: 209,
+            //     },
+            // },
         ],
     };
     render() {
@@ -55,6 +56,18 @@ class WebDM extends React.Component {
         return (
             <div className="class" style={{ backgroundImage: `url(${crp})` }}>
                 {mac}
+                <Mac
+                    history={this.props.history}
+                    key={4}
+                    isFlipped={true}
+                    style={{
+                        left: 436,
+                        top: 209,
+                        width: 58,
+                        height: 58,
+                        backgroundImage: `url(${headphoneMac})`,
+                    }}
+                ></Mac>
             </div>
         );
     }

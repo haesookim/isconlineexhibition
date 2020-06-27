@@ -22,7 +22,7 @@ class TopNav extends React.Component {
                 />
                 <NavItem
                     name="tour"
-                    onClick={() => this.onClickNav("tour/1F/CRP")}
+                    onClick={() => this.onClickNav("tour/3F/Dt4C")}
                     selected={window.location.pathname.includes("/tour")}
                 />
                 <NavItem

@@ -13,8 +13,31 @@
         padding-bottom: 65px;
         display: grid;
         grid-template-rows: 30% 30% 40%;
+        row-gap: 10px;
+        // img {
+        //     width: 250px;
+        // }
+        #maploc {
+            display: grid;
+            grid-template-rows: 1fr 40px;
+            #minimap {
+                background-size: contain;
+                background-repeat: no-repeat;
+                position: relative;
+                #loc-circle {
+                    position: absolute;
+                    width: 12px;
+                    height: 12px;
+                    background-color: #d94300;
+                    border-radius: 100%;
+                }
+            }
+            font-size: 14px;
+        }
+
         #sel-subject {
             font-weight: 700;
+            color: #d34c04;
         }
         #classinfo {
             //height: 140px;
@@ -48,6 +71,8 @@
                 text-align: center;
                 color: #c0c0c0;
                 font-size: 18px;
+                margin: 10px 0;
+                cursor: pointer;
                 &.selected {
                     font-size: 24px;
                     font-weight: 700;

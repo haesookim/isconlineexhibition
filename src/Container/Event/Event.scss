@@ -1,5 +1,5 @@
 #event {
-    //row-gap: ;
+    //overflow: scroll;
     display: block;
     .event-item {
         height: fit-content;
@@ -9,12 +9,20 @@
 
         column-gap: 20px;
         .text-wrapper {
+            position: relative;
             .title {
                 font-size: 1em;
                 font-weight: 700;
             }
             .text {
                 font-size: 1em;
+            }
+            #event-announcement {
+                color: #d34c04;
+                font-size: 14px;
+                font-weight: 700;
+                position: absolute;
+                bottom: 0;
             }
         }
         .event-image {
@@ -24,5 +32,8 @@
         &#second {
             grid-template-columns: 160px 1fr;
         }
+    }
+    hr {
+        margin: 10px 0;
     }
 }

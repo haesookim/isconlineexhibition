@@ -2,22 +2,21 @@
     font-family: "Noto Sans KR", "sans-serif";
     display: grid;
     column-gap: 45px;
-    height: 100vh;
-    grid-template-rows: 20% 80%;
+    margin-top: 52px;
+    height: 90vh;
+    grid-template-rows: 15% 85%;
     row-gap: 30px;
     grid-template-columns: 25% 1fr;
-    overflow: hidden;
-
     grid-template-areas: "logo nav" "sidebar main";
     #logo {
         width: 250px;
         height: 120px;
-        margin-top: 52px;
         justify-self: end;
         align-self: end;
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
+        cursor: pointer;
     }
 
     #overlay {

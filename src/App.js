@@ -7,7 +7,6 @@ import TopNav from "./Container/TopNav/TopNav";
 import About from "./Container/About/About";
 import GuestBook from "./Container/GuestBook/Guestbook";
 import Tour from "./Container/Tour/Tour";
-import SidebarNav from "./Container/Tour/SidebarNav";
 import Interaction from "./Container/Interaction/Interaction";
 import Event from "./Container/Event/Event";
 import AssignmentList from "./Component/Assignment/AssignmentList";
@@ -35,21 +34,28 @@ class App extends React.Component {
                         <Route path="/event" exact component={Event} />
                         <Route path="/guestbook" exact component={GuestBook} />
                         <Route path="/" exact component={About} />
-                        <Redirect exact to="/" />
+                        {/* <Redirect exact to="/" /> */}
                     </Switch>
                 </BrowserRouter>
                 <BrowserRouter history={this.props.history}>
-                    <Route path="/interaction" exact component={Interaction} />
-                    <Route
-                        path="/tour/:id/:id/list"
-                        exact
-                        component={AssignmentList}
-                    />
-                    <Route
-                        path="/tour/:id/:id/list/:id"
-                        exact
-                        component={Assignment}
-                    />
+                    <Switch>
+                        <Route
+                            path="/interaction"
+                            exact
+                            component={Interaction}
+                        />
+                        <Route
+                            path="/tour/:id/:id/list"
+                            exact
+                            component={AssignmentList}
+                        />
+                        <Route
+                            path="/tour/:id/:id/list/:id"
+                            exact
+                            component={Assignment}
+                        />
+                        {/* <Redirect exact to="/" /> */}
+                    </Switch>
                 </BrowserRouter>
                 <div id="overlay">
                     본 웹사이트는 데스크탑 전체화면 뷰에 최적화되어 있습니다.
