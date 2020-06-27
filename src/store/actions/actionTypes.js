@@ -6,6 +6,9 @@ const actionTypes = {
     GET_ASSIGNMENT: "GET_ASSIGNMENT",
     LIKE: "LIKE",
     ADD_COMMENT: "ADD_COMMENT",
+
+    ACTIVATE_POPUP: "ACTIVATE_POPUP",
+    CLOSE_POPUP: "CLOSE_POPUP",
 };
 
 export default actionTypes;

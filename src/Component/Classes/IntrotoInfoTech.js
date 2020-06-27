@@ -1,8 +1,12 @@
 import React from "react";
 import "./Classes.scss";
 
+import { connect } from "react-redux";
+import actionTypes from "../../store/actions/actionTypes";
+
 import background from "./2F_emptyroom.png";
 import Mac from "./../MacElement";
+import dumbbell from "./dumbbell.png";
 
 class IIT extends React.Component {
     state = {
@@ -42,9 +46,33 @@ class IIT extends React.Component {
                 style={{ backgroundImage: `url(${background})` }}
             >
                 {mac}
+                <div
+                    className="event"
+                    id="dumbbell"
+                    style={{
+                        backgroundImage: `url(${dumbbell})`,
+                        width: 126,
+                        height: 66,
+                        position: "absolute",
+                        top: 322,
+                        left: 131,
+                    }}
+                    onClick={() => this.props.openPopup()}
+                ></div>
             </div>
         );
     }
 }
 
-export default IIT;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        openPopup: () => {
+            dispatch({
+                type: actionTypes.ACTIVATE_POPUP,
+                event: "dumbbell",
+            });
+        },
+    };
+};
+
+export default connect(null, mapDispatchToProps)(IIT);

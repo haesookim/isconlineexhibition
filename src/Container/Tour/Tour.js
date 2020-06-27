@@ -185,6 +185,7 @@ class Tour extends React.Component {
         const classList = this.props.subjectList.map((item) => {
             return (
                 <div
+                    className="subject-list"
                     onClick={() => this.loadClass(item)}
                     key={item.name}
                     id={
@@ -221,7 +222,7 @@ class Tour extends React.Component {
                             {this.props.selectedSubject.position}
                         </div>
                     </div>
-                    <div>
+                    <div id="class">
                         <div>{this.props.currentFloor + " 수업 목록"}</div>
                         <hr></hr>
                         <div id="classList">{classList}</div>

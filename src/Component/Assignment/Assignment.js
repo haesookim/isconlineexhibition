@@ -48,7 +48,6 @@ class Assignment extends React.Component {
     render() {
         return (
             <div id="assignment">
-                <div id="closebutton"></div>
                 <div
                     id="pc"
                     style={{ backgroundImage: "url(" + background + ")" }}

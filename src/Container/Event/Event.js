@@ -13,7 +13,7 @@ class Event extends React.Component {
                 <div className="event-item">
                     <div className="text-wrapper">
                         <div className="title">
-                            #1 네오위즈 채용상담 및 설명회
+                            #1 네오위즈 채용상담 및 설명회 (29일(월) 오전 11시)
                         </div>
                         <div className="text">
                             네오위즈와 게임에 관심있는 사람은 누구나 환영합니다!

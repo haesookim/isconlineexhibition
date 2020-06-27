@@ -10,9 +10,11 @@ import { createStore, combineReducers } from "redux";
 import { createBrowserHistory } from "history";
 
 import assignmentReducer from "./store/reducers/assignments";
+import eventReducer from "./store/reducers/event";
 
 const rootReducer = combineReducers({
     assign: assignmentReducer,
+    event: eventReducer,
 });
 
 const store = createStore(rootReducer);

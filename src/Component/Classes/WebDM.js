@@ -1,10 +1,15 @@
 import React from "react";
 import "./Classes.scss";
 
+import { connect } from "react-redux";
+import actionTypes from "../../store/actions/actionTypes";
+
 import headphoneMac from "./../mac_headphone.png";
 import crp from "./3f_lab_back.png";
 import Mac from "./../MacElement";
 
+import mirrorball from "./mirrorball.png";
+import Popup from "../../Container/Tour/Eventpopup";
 class WebDM extends React.Component {
     state = {
         macs: [
@@ -42,6 +47,10 @@ class WebDM extends React.Component {
             // },
         ],
     };
+
+    onClickMirrorBall = () => {
+        this.props.openPopup();
+    };
     render() {
         const mac = this.state.macs.map((item) => {
             return (
@@ -68,9 +77,33 @@ class WebDM extends React.Component {
                         backgroundImage: `url(${headphoneMac})`,
                     }}
                 ></Mac>
+                <div
+                    className="event"
+                    id="mirrorball"
+                    style={{
+                        backgroundImage: `url(${mirrorball})`,
+                        width: 78,
+                        height: 114,
+                        position: "absolute",
+                        top: 37,
+                        left: 307,
+                    }}
+                    onClick={() => this.onClickMirrorBall()}
+                ></div>
             </div>
         );
     }
 }
 
-export default WebDM;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        openPopup: () => {
+            dispatch({
+                type: actionTypes.ACTIVATE_POPUP,
+                event: "mirrorball",
+            });
+        },
+    };
+};
+
+export default connect(null, mapDispatchToProps)(WebDM);

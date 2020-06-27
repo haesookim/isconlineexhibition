@@ -1,7 +1,7 @@
 import React from "react";
 import "./Classes.scss";
 
-import crp from "./1f_classroom1.png";
+import crp from "./1f_classroom.png";
 import Mac from "./../MacElement";
 
 class HCI extends React.Component {

@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./images/logo.png";
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 import "./App.scss";
+import { connect } from "react-redux";
 
 import TopNav from "./Container/TopNav/TopNav";
 import About from "./Container/About/About";
@@ -11,6 +12,7 @@ import Interaction from "./Container/Interaction/Interaction";
 import Event from "./Container/Event/Event";
 import AssignmentList from "./Component/Assignment/AssignmentList";
 import Assignment from "./Component/Assignment/Assignment";
+import Popup from "./Container/Tour/Eventpopup";
 
 class App extends React.Component {
     onClickLogo = () => {
@@ -57,6 +59,7 @@ class App extends React.Component {
                         {/* <Redirect exact to="/" /> */}
                     </Switch>
                 </BrowserRouter>
+                {this.props.popup && <Popup></Popup>}
                 <div id="overlay">
                     본 웹사이트는 데스크탑 전체화면 뷰에 최적화되어 있습니다.
                     <br />
@@ -67,4 +70,10 @@ class App extends React.Component {
     }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        popup: state.event.popupVisible,
+    };
+};
+
+export default connect(mapStateToProps, null)(App);
