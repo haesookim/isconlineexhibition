@@ -9,7 +9,6 @@ import crp from "./3f_lab_back.png";
 import Mac from "./../MacElement";
 
 import mirrorball from "./mirrorball.png";
-import Popup from "../../Container/Tour/Eventpopup";
 class WebDM extends React.Component {
     state = {
         macs: [

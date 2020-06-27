@@ -35,7 +35,7 @@ class Popup extends React.Component {
                     <div className="title">
                         {this.state.titleText[this.state.count]}
                     </div>
-                    <div className="title">
+                    <div className="title" id="thing">
                         {this.state.title2ndLine[this.state.count]}
                     </div>
                     <img
