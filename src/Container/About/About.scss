@@ -25,10 +25,19 @@
             &#first {
                 border: solid 2px #d34c04;
                 color: #d34c04;
+                transition: all ease-in-out 0.3s;
+                &:hover {
+                    background-color: #d34c04;
+                    color: white;
+                }
             }
             &#second {
                 background-color: #d34c04;
                 color: white;
+                transition: all ease-in-out 0.3s;
+                &:hover {
+                    background-color: #b24003;
+                }
             }
         }
     }

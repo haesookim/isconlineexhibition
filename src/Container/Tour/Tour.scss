@@ -43,6 +43,9 @@
             #classList {
                 .subject-list {
                     cursor: pointer;
+                    &:hover {
+                        opacity: 0.45;
+                    }
                 }
             }
         }
@@ -76,14 +79,17 @@
             margin-bottom: 65px;
             .floor {
                 text-align: center;
-                color: #c0c0c0;
-                font-size: 18px;
-                margin: 10px 0;
+                background-color: #c0c0c0;
+                color: white;
+                width: fit-content;
+                padding: 0 10px;
+                font-size: 24px;
+                margin: 10px 40px;
                 cursor: pointer;
+                border-radius: 5px;
                 &.selected {
-                    font-size: 24px;
                     font-weight: 700;
-                    color: black;
+                    background-color: rgb(51, 51, 51);
                 }
             }
         }

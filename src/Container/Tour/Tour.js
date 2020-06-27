@@ -57,7 +57,7 @@ class Tour extends React.Component {
                 position: "2층 복도",
             },
             {
-                name: "디지털 영상 실습 1",
+                name: "디지털영상실습 1",
                 desc:
                     "어떻게 하면 사람들이 쉽고 정확하게 이해할 수 있도록 데이터를 시각화할 수 있을까요? 또 왜곡된 그래프에 속지 않으려면 어떻게 해야할까요? 관악의 비주얼, 비주얼라이제이션에서 배워보세요!",
                 link: "DVP",
@@ -87,6 +87,7 @@ class Tour extends React.Component {
                 position: "3층 랩실 뒤쪽",
             },
         ],
+        actionsVisible: false,
     };
     loadClass(dest) {
         this.props.onSelectSubject(dest);
@@ -295,6 +296,7 @@ class Tour extends React.Component {
                         </div>
                     </div>
                 </div>
+                <div id="actions"></div>
             </div>
         );
     }
