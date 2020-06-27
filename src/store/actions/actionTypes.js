@@ -9,6 +9,9 @@ const actionTypes = {
 
     ACTIVATE_POPUP: "ACTIVATE_POPUP",
     CLOSE_POPUP: "CLOSE_POPUP",
+
+    ACTIVATE_MENU: "ACTIVATE_MENU",
+    CLOSE_MENU: "CLOSE_MENU",
 };
 
 export default actionTypes;

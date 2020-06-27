@@ -13,6 +13,7 @@ import Event from "./Container/Event/Event";
 import AssignmentList from "./Component/Assignment/AssignmentList";
 import Assignment from "./Component/Assignment/Assignment";
 import Popup from "./Container/Tour/Eventpopup";
+import FAB from "./Container/Tour/FAB";
 
 class App extends React.Component {
     onClickLogo = () => {
@@ -60,6 +61,7 @@ class App extends React.Component {
                     </Switch>
                 </BrowserRouter>
                 {this.props.popup && <Popup></Popup>}
+                {this.props.fab && <FAB></FAB>}
                 <div id="overlay">
                     본 웹사이트는 데스크탑 전체화면 뷰에 최적화되어 있습니다.
                     <br />
@@ -73,6 +75,7 @@ class App extends React.Component {
 const mapStateToProps = (state) => {
     return {
         popup: state.event.popupVisible,
+        fab: state.fab.popupVisible,
     };
 };
 

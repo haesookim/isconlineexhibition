@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 import actionTypes from "../../store/actions/actionTypes";
 import { Route, Switch, Router, Redirect } from "react-router-dom";
 
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import CRP from "./../../Component/Classes/CRP";
 import HCI from "./../../Component/Classes/HCI";
 import IIT from "../../Component/Classes/IntrotoInfoTech";
@@ -296,7 +299,12 @@ class Tour extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div id="actions"></div>
+                <div id="actions" onClick={() => this.props.activateFAB()}>
+                    <FontAwesomeIcon
+                        icon={faBars}
+                        onClick={() => this.props.activateFAB()}
+                    ></FontAwesomeIcon>
+                </div>
             </div>
         );
     }
@@ -324,6 +332,9 @@ const mapDispatchToProps = (dispatch) => {
                 type: actionTypes.GET_SUBJECT,
                 subject: subject,
             });
+        },
+        activateFAB: () => {
+            dispatch({ type: actionTypes.ACTIVATE_MENU });
         },
     };
 };
