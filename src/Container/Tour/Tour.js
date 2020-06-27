@@ -152,22 +152,22 @@ class Tour extends React.Component {
                 break;
             case "CRP":
                 left = 85;
-                top = 89;
+                top = 75;
                 break;
             case "IIT":
                 left = 18;
-                top = 123;
+                top = 100;
                 break;
             case "IGD":
-                left = 126;
-                top = 68;
+                left = 120;
+                top = 60;
                 break;
             case "DataVis":
                 left = 53;
-                top = 104;
+                top = 90;
                 break;
             case "Dt4C":
-                left = 166;
+                left = 150;
                 top = 75;
                 break;
             case "WebDM":
