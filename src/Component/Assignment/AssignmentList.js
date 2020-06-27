@@ -62,13 +62,6 @@ class AssignmentList extends React.Component {
                 >
                     <div id="list">
                         {itemstoDisplay}
-                        {/* <div className="assignment-item">
-                            <div className="title">과제 이름</div>
-                            <div className="members">팀원 이름</div>
-                        </div>
-                        <div className="assignment-item"></div>
-                        <div className="assignment-item"></div>
-                        <div className="assignment-item"></div> */}
                         <div id="controls">
                             {this.state.currentPage !== 1 && (
                                 <div
