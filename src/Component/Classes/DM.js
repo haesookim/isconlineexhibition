@@ -33,6 +33,7 @@ class DM extends React.Component {
                         width: 58,
                         height: 58,
                         backgroundImage: `url(${headphoneMac})`,
+                        cursor: "pointer",
                     }}
                     onClick={() => this.onClickMac()}
                 ></div>

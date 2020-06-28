@@ -5,6 +5,8 @@ import { ConnectedRouter } from "connected-react-router";
 import "./App.scss";
 import { connect } from "react-redux";
 
+import redir from "./web_view.jpg";
+
 import TopNav from "./Container/TopNav/TopNav";
 import About from "./Container/About/About";
 import GuestBook from "./Container/GuestBook/Guestbook";
@@ -63,11 +65,10 @@ class App extends React.Component {
                 </ConnectedRouter>
                 {this.props.popup && <Popup></Popup>}
                 {this.props.fab && <FAB></FAB>}
-                <div id="overlay">
-                    본 웹사이트는 데스크탑 전체화면 뷰에 최적화되어 있습니다.
-                    <br />
-                    컴퓨터로 접속하거나, 화면 가로를 늘려 주세요.
-                </div>
+                <div
+                    id="overlay"
+                    style={{ backgroundImage: "url(" + redir + ")" }}
+                ></div>
             </div>
         );
     }

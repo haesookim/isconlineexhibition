@@ -33,6 +33,7 @@ class DVP extends React.Component {
                         width: 186,
                         height: 200,
                         backgroundImage: `url(${screen})`,
+                        cursor: "pointer",
                     }}
                     onClick={() => this.onClickScreen()}
                 ></div>
