@@ -11,6 +11,10 @@ import Mac from "../MacElement";
 import mirrorball from "./mirrorball.png";
 class DM extends React.Component {
     state = {};
+    onClickMac = () => {
+        this.props.history.push(window.location.pathname + "/list/1");
+        window.location.reload();
+    };
 
     onClickMirrorBall = () => {
         this.props.openPopup();
@@ -18,18 +22,20 @@ class DM extends React.Component {
     render() {
         return (
             <div className="class" style={{ backgroundImage: `url(${crp})` }}>
-                <Mac
+                <div
                     history={this.props.history}
                     key={4}
                     isFlipped={true}
                     style={{
+                        position: "absolute",
                         left: 436,
                         top: 209,
                         width: 58,
                         height: 58,
                         backgroundImage: `url(${headphoneMac})`,
                     }}
-                ></Mac>
+                    onClick={() => this.onClickMac()}
+                ></div>
                 <div
                     className="event"
                     id="mirrorball"

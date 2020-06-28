@@ -68,16 +68,21 @@ class Assignment extends React.Component {
                         <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
                     </div>
                     <div id="container">
-                        <div
-                            className="links"
-                            id="back"
-                            onClick={() => this.onClickBack()}
-                        >
-                            <FontAwesomeIcon
-                                icon={faArrowAltCircleLeft}
-                            ></FontAwesomeIcon>{" "}
-                            뒤로 가기
-                        </div>
+                        {!window.location.pathname.includes("DM") &&
+                        !window.location.pathname.includes("DVP") ? (
+                            <div
+                                className="links"
+                                id="back"
+                                onClick={() => this.onClickBack()}
+                            >
+                                <FontAwesomeIcon
+                                    icon={faArrowAltCircleLeft}
+                                ></FontAwesomeIcon>{" "}
+                                뒤로 가기
+                            </div>
+                        ) : (
+                            <div></div>
+                        )}
                         <div className="top">
                             <div id="assign-title">
                                 {this.props.selectedSubject.title}

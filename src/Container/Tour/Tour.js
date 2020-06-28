@@ -14,6 +14,7 @@ import IGD from "../../Component/Classes/IGD";
 import Web from "../../Component/Classes/Web";
 import Dt4C from "../../Component/Classes/Dt4C";
 import DM from "../../Component/Classes/DM";
+import DVP from "../../Component/Classes/DVP";
 
 import "./Tour.scss";
 import first from "./1f_mini.png";
@@ -183,6 +184,10 @@ class Tour extends React.Component {
                 left = 49;
                 top = 61;
                 break;
+            case "DVP":
+                left = 114;
+                top = 50;
+                break;
             default:
                 break;
         }
@@ -257,7 +262,7 @@ class Tour extends React.Component {
                                     path="/tour/2F/Datavis"
                                     component={Datavis}
                                 />
-                                {/* <Route path="/tour/2F/Cinema" component={Cinema} /> */}
+                                <Route path="/tour/2F/DVP" component={DVP} />
                                 <Route path="/tour/3F/Dt4C" component={Dt4C} />
                                 <Route path="/tour/3F/Web" component={Web} />
                                 <Route path="/tour/3F/DM" component={DM} />
