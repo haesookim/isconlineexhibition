@@ -4,6 +4,9 @@ import "./Classes.scss";
 import crp from "./3f_lab_front.png";
 import Mac from "./../MacElement";
 
+import minimi from "./../../images/minimi5.png";
+
+import NPC from "../NPC";
 class Dt4C extends React.Component {
     state = {
         macs: [
@@ -71,6 +74,12 @@ class Dt4C extends React.Component {
         return (
             <div className="class" style={{ backgroundImage: `url(${crp})` }}>
                 {mac}
+                <NPC
+                    back={minimi}
+                    line="맥을 클릭하면 과제를 볼 수 있어!"
+                    top={294}
+                    left={150}
+                ></NPC>
             </div>
         );
     }

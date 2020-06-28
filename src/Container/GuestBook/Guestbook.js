@@ -1,4 +1,8 @@
 import React from "react";
+
+import { connect } from "react-redux";
+import * as actionCreators from "../../store/actions/index";
+
 import infodesk from "../../images/infodesk.png";
 
 import GuestNote from "../../Component/GuestNote";
@@ -39,14 +43,32 @@ class GuestBook extends React.Component {
                 message: "이런식으로 메시지가 들어갑니다",
             },
         ],
+        nickname: "",
+        password: "",
+        content: "",
+    };
+
+    onClickSendMsg = () => {
+        let newMsg = {
+            icon_type: 1,
+            nickname: this.state.nickname,
+            password: this.state.password,
+            content: this.state.content,
+        };
+        this.props.sendMessage(newMsg);
+    };
+
+    componentDidMount = () => {
+        this.props.getMessages();
     };
     render() {
-        const messages = this.state.messages.map((msg) => {
+        const messages = this.props.messages.map((msg) => {
             return (
                 <GuestNote
-                    name={msg.name}
+                    name={msg.nickname}
                     date={msg.date}
-                    content={msg.message}
+                    key={msg.id}
+                    content={msg.content}
                 />
             );
         });
@@ -56,15 +78,52 @@ class GuestBook extends React.Component {
                 <div id="message-container">
                     <div id="scrollview">{messages}</div>
                     <div id="inputview">
-                        <input placeholder="작성자"></input>
-                        <input placeholder="비밀번호"></input>
-                        <textarea placeholder="댓글을 입력해주세요"></textarea>
-                        <button>댓글 입력</button>
+                        <input
+                            id="nickname"
+                            placeholder="작성자"
+                            onChange={(e) => {
+                                this.setState({ nickname: e.target.value });
+                            }}
+                        ></input>
+                        <input
+                            id="password"
+                            placeholder="비밀번호"
+                            onChange={(e) => {
+                                this.setState({ password: e.target.value });
+                            }}
+                        ></input>
+                        <textarea
+                            id="content"
+                            placeholder="댓글을 입력해주세요"
+                            onChange={(e) => {
+                                this.setState({ content: e.target.value });
+                            }}
+                        ></textarea>
+                        <button onClick={() => this.onClickSendMsg()}>
+                            댓글 입력
+                        </button>
                     </div>
                 </div>
             </div>
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        messages: state.message.messageList,
+    };
+};
 
-export default GuestBook;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getMessages: () => {
+            dispatch(actionCreators.getMsgs());
+        },
+        sendMessage: (message) => {
+            console.log(message);
+            dispatch(actionCreators.sendMsg(message));
+        },
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(GuestBook);

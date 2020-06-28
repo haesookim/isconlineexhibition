@@ -14,12 +14,14 @@ import { createBrowserHistory } from "history";
 import assignmentReducer from "./store/reducers/assignments";
 import eventReducer from "./store/reducers/event";
 import FABReducer from "./store/reducers/floatingmenu";
+import messageReducer from "./store/reducers/guestBook";
 
 const history = createBrowserHistory();
 const rootReducer = combineReducers({
     assign: assignmentReducer,
     event: eventReducer,
     fab: FABReducer,
+    message: messageReducer,
     router: connectRouter(history),
 });
 

@@ -1,7 +1,7 @@
 #popup {
     height: 100vh;
     width: 100%;
-    position: absolute;
+    position: fixed;
 
     top: 0;
     background-color: rgba($color: #000000, $alpha: 0.64);
@@ -36,5 +36,14 @@
             height: 50px;
             cursor: pointer;
         }
+    }
+    #copiedtext {
+        position: absolute;
+        bottom: 60px;
+        right: 200px;
+        background-color: white;
+        border: 2px solid black;
+        border-radius: 5px;
+        padding: 0 10px;
     }
 }

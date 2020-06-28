@@ -16,8 +16,11 @@ export const getAssignment = (subject, key) => {
             .get("/info/" + subject + "_" + key)
             .then((res) => dispatch(getAssignment_(res.data)))
             .then(() => {
-                console.log(window.location.pathname + "/" + key);
-                dispatch(push(window.location.pathname + "/" + key));
+                if (window.location.pathname.split("/").length < 6) {
+                    dispatch(push(window.location.pathname + "/" + key));
+                } else if (window.location.pathname.split("/")[5] === key) {
+                    dispatch(push(window.location.pathname));
+                }
             });
     };
 };

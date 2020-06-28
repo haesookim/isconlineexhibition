@@ -13,7 +13,14 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class FAB extends React.Component {
-    onClickShare = () => {};
+    state = { visible: false };
+    onClickShare = () => {
+        this.setState({ visible: true });
+        navigator.clipboard.writeText("https://iscexhibition.herokuapp.com/");
+        setTimeout(() => {
+            this.setState({ visible: false });
+        }, 2000);
+    };
     render() {
         return (
             <div id="popup">
@@ -48,6 +55,9 @@ class FAB extends React.Component {
                         </div>
                     </div>
                 </div>
+                {this.state.visible && (
+                    <div id="copiedtext">클립보드에 복사되었습니다</div>
+                )}
             </div>
         );
     }

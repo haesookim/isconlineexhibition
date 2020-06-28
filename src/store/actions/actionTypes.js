@@ -12,6 +12,9 @@ const actionTypes = {
 
     ACTIVATE_MENU: "ACTIVATE_MENU",
     CLOSE_MENU: "CLOSE_MENU",
+
+    SEND_MSG: "SEND_MSG",
+    GET_ALLMSG: "GET_ALLMSG",
 };
 
 export default actionTypes;

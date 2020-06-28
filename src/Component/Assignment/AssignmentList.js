@@ -30,7 +30,7 @@ class AssignmentList extends React.Component {
         this.setState({ currentPage: this.state.currentPage + 1 });
     };
 
-    onSelectAssignment = async (item) => {
+    onSelectAssignment = (item) => {
         // set store on selectedsubject
         this.props.getAssignmentInfo(this.props.selectedSubject, item.index);
 
@@ -72,6 +72,7 @@ class AssignmentList extends React.Component {
             }
         });
         return (
+            //onClick={() => this.onClickClose()}
             <div id="assignment">
                 <div id="closebutton" onClick={() => this.onClickClose()}>
                     <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>

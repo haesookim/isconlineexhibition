@@ -18,6 +18,7 @@ class Assignment extends React.Component {
         likeCount: 0,
         liked: false,
         key: window.location.pathname.split("/")[5],
+        item: { title: "", authors: "", url: "", desc1: "", desc2: "" },
     };
     onClickClose = () => {
         this.props.history.push(
@@ -47,61 +48,81 @@ class Assignment extends React.Component {
 
         //also send +1 to server
     };
-    render() {
+
+    componentDidMount() {
         if (
-            this.props.selectedAssignment === null ||
-            this.props.selectedAssignment === undefined
+            this.props.selectedSubject === null &&
+            this.props.selectedSubject === undefined
         ) {
+            this.props.getAssignmentInfo(
+                window.location.pathname.split("/")[3],
+                window.location.pathname.split("/")[5],
+            );
+        } else {
             this.props.getAssignmentInfo(
                 this.props.selectedSubject.link,
                 this.state.key,
             );
         }
+        this.setState({ item: this.props.selectedAssignment });
+    }
+    render() {
+        // if (
+        //     this.props.selectedAssignment === null ||
+        //     this.props.selectedAssignment === undefined
+        // ) {
+        // }
 
         return (
-            <div id="assignment">
-                <div
-                    id="pc"
-                    style={{ backgroundImage: "url(" + background + ")" }}
-                >
-                    <div id="closebutton" onClick={() => this.onClickClose()}>
-                        <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
-                    </div>
-                    <div id="container">
-                        {!window.location.pathname.includes("DM") &&
-                        !window.location.pathname.includes("DVP") ? (
-                            <div
-                                className="links"
-                                id="back"
-                                onClick={() => this.onClickBack()}
-                            >
-                                <FontAwesomeIcon
-                                    icon={faArrowAltCircleLeft}
-                                ></FontAwesomeIcon>{" "}
-                                뒤로 가기
-                            </div>
-                        ) : (
-                            <div></div>
-                        )}
-                        <div className="top">
-                            <div id="assign-title">
-                                {this.props.selectedAssignment.title}
-                            </div>
-                            <div id="assign-members">
-                                {this.props.selectedAssignment.authors}
-                            </div>
+            // onClick={() => this.onClickClose()}
+            (this.props.selectedAssignment !== null ||
+                this.props.selectedAssignment !== undefined) && (
+                <div id="assignment">
+                    <div
+                        id="pc"
+                        style={{ backgroundImage: "url(" + background + ")" }}
+                    >
+                        <div
+                            id="closebutton"
+                            onClick={() => this.onClickClose()}
+                        >
+                            <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
                         </div>
-                        <img
-                            className="assignment"
-                            alt="과제 메인 이미지"
-                            src={
-                                "https://isc2020-1.herokuapp.com/image/" +
-                                this.props.selectedSubject.link +
-                                "_" +
-                                this.state.key
-                            }
-                        ></img>
-                        {/* <div
+                        <div id="container">
+                            {!window.location.pathname.includes("DM") &&
+                            !window.location.pathname.includes("DVP") ? (
+                                <div
+                                    className="links"
+                                    id="back"
+                                    onClick={() => this.onClickBack()}
+                                >
+                                    <FontAwesomeIcon
+                                        icon={faArrowAltCircleLeft}
+                                    ></FontAwesomeIcon>{" "}
+                                    뒤로 가기
+                                </div>
+                            ) : (
+                                <div></div>
+                            )}
+                            <div className="top">
+                                <div id="assign-title">
+                                    {this.state.item.title}
+                                </div>
+                                <div id="assign-members">
+                                    {this.state.item.authors}
+                                </div>
+                            </div>
+                            <img
+                                className="assignment"
+                                alt="과제 메인 이미지"
+                                src={
+                                    "https://isc2020-1.herokuapp.com/image/" +
+                                    this.props.selectedSubject.link +
+                                    "_" +
+                                    this.state.key
+                                }
+                            ></img>
+                            {/* <div
                             className="assignment"
                             alt="과제 메인 이미지"
                             style={{
@@ -111,46 +132,52 @@ class Assignment extends React.Component {
                                     ")",
                             }}
                         ></div> */}
-                        <div className="info">
-                            <div className="title">과제 설명</div>
-                            <div className="content">
-                                {this.props.selectedAssignment.desc1}
-                            </div>
-                            <div className="title">과제 역학조사</div>
-                            <div className="content">
-                                {this.props.selectedAssignment.desc2}
-                            </div>
-                            <div id="links">
-                                <div className="link">
-                                    <img alt="notion logo" src={notion}></img>
-                                    <a href={this.props.selectedAssignment.url}>
-                                        과제 자세히 보기
-                                    </a>
+                            <div className="info">
+                                <div className="title">과제 설명</div>
+                                <div className="content">
+                                    {this.state.item.desc1}
                                 </div>
-                                <div className="link">
-                                    <FontAwesomeIcon
-                                        icon={faShareAlt}
-                                    ></FontAwesomeIcon>
-                                    <a href="">공유하기</a>
+                                <div className="title">과제 역학조사</div>
+                                <div className="content">
+                                    {this.state.item.desc2}
                                 </div>
-                                <div
-                                    className={
-                                        this.state.liked ? "link liked" : "link"
-                                    }
-                                    id="like"
-                                >
-                                    <FontAwesomeIcon
-                                        icon={faHeart}
-                                        id="icon"
-                                        onClick={() => this.onClickLike()}
-                                    ></FontAwesomeIcon>
-                                    <div></div>
+                                <div id="links">
+                                    <div className="link">
+                                        <img
+                                            alt="notion logo"
+                                            src={notion}
+                                        ></img>
+                                        <a href={this.state.item.url}>
+                                            과제 자세히 보기
+                                        </a>
+                                    </div>
+                                    <div className="link">
+                                        <FontAwesomeIcon
+                                            icon={faShareAlt}
+                                        ></FontAwesomeIcon>
+                                        <a href="">공유하기</a>
+                                    </div>
+                                    <div
+                                        className={
+                                            this.state.liked
+                                                ? "link liked"
+                                                : "link"
+                                        }
+                                        id="like"
+                                    >
+                                        <FontAwesomeIcon
+                                            icon={faHeart}
+                                            id="icon"
+                                            onClick={() => this.onClickLike()}
+                                        ></FontAwesomeIcon>
+                                        <div></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            )
         );
     }
 }
