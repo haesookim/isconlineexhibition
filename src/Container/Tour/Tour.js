@@ -11,8 +11,9 @@ import HCI from "./../../Component/Classes/HCI";
 import IIT from "../../Component/Classes/IntrotoInfoTech";
 import Datavis from "../../Component/Classes/DataVis";
 import IGD from "../../Component/Classes/IGD";
-import WebDM from "../../Component/Classes/WebDM";
+import Web from "../../Component/Classes/Web";
 import Dt4C from "../../Component/Classes/Dt4C";
+import DM from "../../Component/Classes/DM";
 
 import "./Tour.scss";
 import first from "./1f_mini.png";
@@ -79,14 +80,14 @@ class Tour extends React.Component {
                 name: "웹프로그래밍개론",
                 desc:
                     "HTML, CSS, Ruby, Rails를 한 방에 배울 수 있는 관악 유일(아닐 수도 있음)의 강좌가 있다?! 웹프로그래밍개론을 듣고나면 당신도 웹 프로그래밍 마스터!",
-                link: "WebDM",
+                link: "Web",
                 position: "3층 랩실 뒤쪽",
             },
             {
                 name: "디지털 음향의 이해",
                 desc:
                     "왜 지그재그 그림에서 소리가 나지?하루도 빼놓지 않고 듣게 되는 디지털 음향들, 원리와 제작 방식이 궁금하지 않으신가요?디지털 음향의 이해에서 여러 소리를 직접 녹음하고 편집해보세요!",
-                link: "WebDM",
+                link: "DM",
                 position: "3층 랩실 뒤쪽",
             },
         ],
@@ -174,7 +175,11 @@ class Tour extends React.Component {
                 left = 150;
                 top = 75;
                 break;
-            case "WebDM":
+            case "DM":
+                left = 49;
+                top = 61;
+                break;
+            case "Web":
                 left = 49;
                 top = 61;
                 break;
@@ -254,10 +259,8 @@ class Tour extends React.Component {
                                 />
                                 {/* <Route path="/tour/2F/Cinema" component={Cinema} /> */}
                                 <Route path="/tour/3F/Dt4C" component={Dt4C} />
-                                <Route
-                                    path="/tour/3F/WebDM"
-                                    component={WebDM}
-                                />
+                                <Route path="/tour/3F/Web" component={Web} />
+                                <Route path="/tour/3F/DM" component={DM} />
                                 <Redirect path="/tour/1F" to="/tour/1F/CRP" />
                                 <Redirect path="/tour/2F" to="/tour/2F/IGD" />
                                 <Redirect path="/tour/3F" to="/tour/3F/Dt4C" />

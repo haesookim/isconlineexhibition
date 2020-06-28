@@ -5,65 +5,19 @@ import { connect } from "react-redux";
 import actionTypes from "../../store/actions/actionTypes";
 
 import headphoneMac from "./../mac_headphone.png";
-import crp from "./3f_lab_back.png";
-import Mac from "./../MacElement";
+import crp from "./3f_lab_back_DM.png";
+import Mac from "../MacElement";
 
 import mirrorball from "./mirrorball.png";
-class WebDM extends React.Component {
-    state = {
-        macs: [
-            {
-                key: 1,
-                flipped: false,
-                style: {
-                    left: 54,
-                    top: 219,
-                },
-            },
-            {
-                key: 2,
-                flipped: false,
-                style: {
-                    left: 112,
-                    top: 189,
-                },
-            },
-            {
-                key: 3,
-                flipped: true,
-                style: {
-                    left: 382,
-                    top: 179,
-                },
-            },
-            // {
-            //     key: 4,
-            //     flipped: true,
-            //     style: {
-            //         left: 436,
-            //         top: 209,
-            //     },
-            // },
-        ],
-    };
+class DM extends React.Component {
+    state = {};
 
     onClickMirrorBall = () => {
         this.props.openPopup();
     };
     render() {
-        const mac = this.state.macs.map((item) => {
-            return (
-                <Mac
-                    history={this.props.history}
-                    key={item.key}
-                    isFlipped={item.flipped}
-                    style={item.style}
-                ></Mac>
-            );
-        });
         return (
             <div className="class" style={{ backgroundImage: `url(${crp})` }}>
-                {mac}
                 <Mac
                     history={this.props.history}
                     key={4}
@@ -105,4 +59,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(null, mapDispatchToProps)(WebDM);
+export default connect(null, mapDispatchToProps)(DM);
