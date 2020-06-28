@@ -11,8 +11,8 @@ export const getAssignment_ = (data) => {
 
 export const getAssignment = (subject, key) => {
     return (dispatch) => {
-        return fetch(
-            "https://isc2020-1.herokuapp.com/info/" + subject + "_" + key,
-        ).then((res) => dispatch(getAssignment_(res.data)));
+        return axios
+            .get("info/" + subject + "_" + key)
+            .then((res) => dispatch(getAssignment_(res.data)));
     };
 };
