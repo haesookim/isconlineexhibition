@@ -1,6 +1,7 @@
 {
     "name": "iscexhibition",
     "version": "0.1.0",
+    "proxy": "https://isc2020-1.herokuapp.com/",
     "private": true,
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.29",
@@ -9,6 +10,7 @@
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "@testing-library/user-event": "^7.1.2",
+        "axios": "^0.19.2",
         "connected-react-router": "^6.8.0",
         "express-favicon": "^2.0.1",
         "fontawesome": "^5.6.3",
@@ -20,7 +22,8 @@
         "react-router-dom": "^5.2.0",
         "react-router-redux": "^4.0.8",
         "react-scripts": "3.4.1",
-        "redux": "^4.0.5"
+        "redux": "^4.0.5",
+        "redux-thunk": "^2.3.0"
     },
     "scripts": {
         "start": "node server.js",

@@ -88,6 +88,9 @@ const reducer = (state = initialState, action) => {
             return state;
         case actionTypes.GET_SUBJECT:
             return { ...state, selectedSubject: action.subject };
+
+        case actionTypes.GET_ASSIGNMENT:
+            return { ...state, selectedAssignment: action.assign };
         default:
             break;
     }

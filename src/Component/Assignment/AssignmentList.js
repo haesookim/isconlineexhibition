@@ -1,6 +1,8 @@
 import React from "react";
 import background from "./background_mac.png";
 import { connect } from "react-redux";
+import * as actionCreators from "../../store/actions/index";
+
 import {
     faTimes,
     faCaretLeft,
@@ -29,6 +31,8 @@ class AssignmentList extends React.Component {
 
     onSelectAssignment = (item) => {
         // set store on selectedsubject
+        this.props.getAssignmentInfo(this.props.selectedSubject, item.index);
+
         this.props.history.push(window.location.pathname + "/" + item.index);
     };
     render() {
@@ -97,11 +101,16 @@ const mapStateToProps = (state) => {
         currentFloor: state.assign.currentFloor,
         selectedSubject: state.assign.selectedSubject,
         assignmentList: state.assign.assignmentList,
+        selectedAssignment: state.assign.selectedAssignment,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {};
+    return {
+        getAssignmentInfo: (sub, key) => {
+            dispatch(actionCreators.getAssignment(sub.link, key));
+        },
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AssignmentList);

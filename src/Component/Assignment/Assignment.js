@@ -119,6 +119,7 @@ const mapStateToProps = (state) => {
         currentFloor: state.assign.currentFloor,
         subjectList: state.assign.subjectList,
         selectedSubject: state.assign.selectedSubject,
+        selectedAssignment: state.assign.selectedAssignment,
     };
 };
 

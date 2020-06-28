@@ -8,7 +8,7 @@ class About extends React.Component {
         window.location.reload();
     };
     onClickVisit = () => {
-        this.props.history.push("/tour");
+        this.props.history.push("/tour/3F/Dt4C");
         window.location.reload();
     };
     render() {

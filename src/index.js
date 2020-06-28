@@ -4,8 +4,9 @@ import "./index.scss";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
+import thunk from "redux-thunk";
 
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 
 import { createBrowserHistory } from "history";
 
@@ -19,7 +20,13 @@ const rootReducer = combineReducers({
     fab: FABReducer,
 });
 
-const store = createStore(rootReducer);
+const middlewares = [thunk];
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+    rootReducer,
+    composeEnhancers(applyMiddleware(...middlewares)),
+);
 
 const history = createBrowserHistory();
 
