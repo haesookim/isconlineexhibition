@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import background from "./background_mac.png";
+import * as actionCreators from "../../store/actions/index";
 import {
     faTimes,
     faArrowAltCircleLeft,
@@ -16,6 +17,7 @@ class Assignment extends React.Component {
     state = {
         likeCount: 0,
         liked: false,
+        key: window.location.pathname.split("/")[5],
     };
     onClickClose = () => {
         this.props.history.push(
@@ -46,6 +48,16 @@ class Assignment extends React.Component {
         //also send +1 to server
     };
     render() {
+        if (
+            this.props.selectedAssignment === null ||
+            this.props.selectedAssignment === undefined
+        ) {
+            this.props.getAssignmentInfo(
+                this.props.selectedSubject.link,
+                this.state.key,
+            );
+        }
+
         return (
             <div id="assignment">
                 <div
@@ -67,24 +79,48 @@ class Assignment extends React.Component {
                             뒤로 가기
                         </div>
                         <div className="top">
-                            <div id="assign-title">과제 제목</div>
+                            <div id="assign-title">
+                                {this.props.selectedSubject.title}
+                            </div>
                             <div id="assign-members">
-                                팀원, 팀원, 팀원, 팀원
+                                {this.props.selectedSubject.authors}
                             </div>
                         </div>
                         <img
                             className="assignment"
                             alt="과제 메인 이미지"
+                            src={
+                                "https://isc2020-1.herokuapp.com/image/" +
+                                this.props.selectedSubject.link +
+                                "_" +
+                                this.state.key
+                            }
                         ></img>
+                        {/* <div
+                            className="assignment"
+                            alt="과제 메인 이미지"
+                            style={{
+                                backgroundImage:
+                                    "url(" +
+                                    "https://isc2020-1.herokuapp.com/image/CRP_1" +
+                                    ")",
+                            }}
+                        ></div> */}
                         <div className="info">
                             <div className="title">과제 설명</div>
-                            <div className="content">과제 설명</div>
+                            <div className="content">
+                                {this.props.selectedSubject.desc1}
+                            </div>
                             <div className="title">과제 역학조사</div>
-                            <div className="content">과제 설명</div>
+                            <div className="content">
+                                {this.props.selectedSubject.desc2}
+                            </div>
                             <div id="links">
                                 <div className="link">
                                     <img alt="notion logo" src={notion}></img>
-                                    <a href="">과제 자세히 보기</a>
+                                    <a href={this.props.selectedSubject.url}>
+                                        과제 자세히 보기
+                                    </a>
                                 </div>
                                 <div className="link">
                                     <FontAwesomeIcon
@@ -120,7 +156,16 @@ const mapStateToProps = (state) => {
         subjectList: state.assign.subjectList,
         selectedSubject: state.assign.selectedSubject,
         selectedAssignment: state.assign.selectedAssignment,
+        //selectedImage:
     };
 };
 
-export default connect(mapStateToProps)(Assignment);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getAssignmentInfo: (sub, key) => {
+            dispatch(actionCreators.getAssignment(sub.link, key));
+        },
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Assignment);
