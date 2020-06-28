@@ -30,11 +30,11 @@ class TopNav extends React.Component {
                     onClick={() => this.onClickNav("event")}
                     selected={window.location.pathname === "/event"}
                 />
-                <NavItem
+                {/* <NavItem
                     name="guestbook"
                     onClick={() => this.onClickNav("guestbook")}
                     selected={window.location.pathname === "/guestbook"}
-                />
+                /> */}
             </div>
         );
     }

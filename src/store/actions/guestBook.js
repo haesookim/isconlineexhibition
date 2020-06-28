@@ -24,8 +24,22 @@ export const sendMsg_ = (data) => {
 
 export const sendMsg = (sendData) => {
     return (dispatch) => {
+        // return axios
+        //     .post("/add_msg", sendData)
+        //     .then((res) => dispatch(sendMsg_(res.data)));
+
         return axios
-            .post("/add_msg/", sendData)
-            .then((res) => dispatch(sendMsg_(res.data)));
+            .post("/add_msg", sendData, {
+                headers: {
+                    "Content-Type":
+                        "application/x-www-form-urlencoded; charset=UTF-8",
+                },
+            })
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error.response);
+            });
     };
 };

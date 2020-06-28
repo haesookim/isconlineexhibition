@@ -10,6 +10,8 @@
     .bodytext {
         align-self: end;
         margin-bottom: 28px;
+        overflow: scroll;
+        max-height: 90%;
     }
     #buttondiv {
         grid-column: 2;

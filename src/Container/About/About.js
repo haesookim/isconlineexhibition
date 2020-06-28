@@ -16,11 +16,19 @@ class About extends React.Component {
             <div id="aboutpage" className="main">
                 <img id="main" src={poster} alt="포스터 gif"></img>
                 <div className="bodytext">
-                    놀랍게도 정문과제전은 정상영업중이랍니다.저희는 망하지
-                    않았다구요. 물론 왼쪽 사진은 포스터 사진입니다. 온라인
-                    과제전의 취지 설명, 과제전 컨셉 설명 등등등
+                    안녕하세요! 서울대학교 연합전공 정보문화학 온라인 과제전에
+                    오신 것을 환영합니다.
                     <br /> <br />
-                    made by. 팀플이 되어버린 과대진 + 랩조교 일동
+                    매 학기 말 IBK 커뮤니케이션 센터에서 진행하던 과제물 전시를
+                    온라인 형태로 바꾸어 선보이게 되었습니다. 사회적 거리두기로
+                    황량해진 캠퍼스 가운데....정문 과제전은 정상영업중입니다!
+                    <br /> <br />
+                    다양한 전공과 배경을 가지고 모인 학생들이 정보문화학
+                    수업에서 IT 기술을 만나 현실화한 아이디어들을 각자의 집에서
+                    모니터로 둘러보고 색다른 영감을 얻을 수 있는 기회가 되길
+                    바랍니다.
+                    <br /> <br />
+                    2020-1학기 연합전공 정보문화학 과대진 및 랩조교 일동
                 </div>
                 <div id="buttondiv">
                     <button id="first" onClick={this.onClickInteraction}>
