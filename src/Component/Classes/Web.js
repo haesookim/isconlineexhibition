@@ -8,6 +8,11 @@ import crp from "./3f_lab_back_Web.png";
 import Mac from "../MacElement";
 
 import mirrorball from "./mirrorball.png";
+
+import minimi from "./../../images/minimi3.png";
+
+import NPC from "../NPC";
+
 class Web extends React.Component {
     state = {
         macs: [
@@ -76,6 +81,7 @@ class Web extends React.Component {
                     }}
                     onClick={() => this.onClickMirrorBall()}
                 ></div>
+                <NPC back={minimi} line="blahblah" top={342} left={523}></NPC>
             </div>
         );
     }

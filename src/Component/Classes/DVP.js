@@ -7,6 +7,10 @@ import actionTypes from "../../store/actions/actionTypes";
 import screen from "./../screen.png";
 import crp from "./2f_cinema.png";
 
+import minimi from "./../../images/minimi4.png";
+
+import NPC from "../NPC";
+
 class DVP extends React.Component {
     state = {};
 
@@ -32,6 +36,7 @@ class DVP extends React.Component {
                     }}
                     onClick={() => this.onClickScreen()}
                 ></div>
+                <NPC back={minimi} line="" top={294} left={614}></NPC>
             </div>
         );
     }

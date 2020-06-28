@@ -45,7 +45,7 @@ class Tour extends React.Component {
                 desc:
                     "기간은 15주. 목표는 게임 하나를 제작해내는 것.날이 갈수록 낯설었던 팀원들과 유니티, 구글 드라이브가 익숙해지는 게 느껴지네요!하지만 어김없이 마지막 날에는 이런 말이 들립니다.“배 교수님… 저희에게 제발 한 주만 더…”",
                 link: "IGD",
-                position: "2층 테라스 부근",
+                position: "2층 전시홀",
             },
             {
                 name: "정보문화기술입문",
@@ -185,8 +185,8 @@ class Tour extends React.Component {
                 top = 61;
                 break;
             case "DVP":
-                left = 114;
-                top = 50;
+                left = 105;
+                top = 35;
                 break;
             default:
                 break;

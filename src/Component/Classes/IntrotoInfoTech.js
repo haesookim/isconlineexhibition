@@ -7,6 +7,9 @@ import actionTypes from "../../store/actions/actionTypes";
 import background from "./2F_emptyroom.png";
 import Mac from "./../MacElement";
 import dumbbell from "./dumbbell.png";
+import minimi from "./../../images/minimi2.png";
+
+import NPC from "../NPC";
 
 class IIT extends React.Component {
     state = {
@@ -59,6 +62,7 @@ class IIT extends React.Component {
                     }}
                     onClick={() => this.props.openPopup()}
                 ></div>
+                <NPC back={minimi} line="" top={322} left={266}></NPC>
             </div>
         );
     }

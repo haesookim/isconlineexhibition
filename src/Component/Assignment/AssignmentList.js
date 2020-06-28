@@ -49,8 +49,21 @@ class AssignmentList extends React.Component {
                         key={item.index}
                         onClick={() => this.onSelectAssignment(item)}
                     >
-                        <div className="title">{item.title}</div>
-                        <div className="members">{item.members}</div>
+                        <div
+                            className="background"
+                            style={{
+                                backgroundImage:
+                                    "url(" +
+                                    "https://isc2020-1.herokuapp.com/image/" +
+                                    this.props.selectedSubject.link +
+                                    "_" +
+                                    item.index,
+                            }}
+                        ></div>
+                        <div className="overlay">
+                            <div className="title">{item.title}</div>
+                            <div className="members">{item.members}</div>
+                        </div>
                     </div>
                 );
             }
