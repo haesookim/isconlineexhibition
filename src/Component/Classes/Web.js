@@ -81,7 +81,12 @@ class Web extends React.Component {
                     }}
                     onClick={() => this.onClickMirrorBall()}
                 ></div>
-                <NPC back={minimi} line="blahblah" top={342} left={523}></NPC>
+                <NPC
+                    back={minimi}
+                    line="원래 랩실이 이렇게 반짝거렸나?"
+                    top={342}
+                    left={523}
+                ></NPC>
             </div>
         );
     }

@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "./images/logo.png";
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
+import { ConnectedRouter } from "connected-react-router";
 import "./App.scss";
 import { connect } from "react-redux";
 
@@ -30,7 +31,7 @@ class App extends React.Component {
                     style={{ backgroundImage: `url(${logo})` }}
                 ></div>
                 <TopNav history={this.props.history}></TopNav>
-                <BrowserRouter history={this.props.history}>
+                <ConnectedRouter history={this.props.history}>
                     <Switch>
                         <Route path="/about" exact component={About} />
                         <Route path="/tour" component={Tour} />
@@ -39,8 +40,8 @@ class App extends React.Component {
                         <Route path="/" exact component={About} />
                         {/* <Redirect exact to="/" /> */}
                     </Switch>
-                </BrowserRouter>
-                <BrowserRouter history={this.props.history}>
+                </ConnectedRouter>
+                <ConnectedRouter history={this.props.history}>
                     <Switch>
                         <Route
                             path="/interaction"
@@ -59,7 +60,7 @@ class App extends React.Component {
                         />
                         {/* <Redirect exact to="/" /> */}
                     </Switch>
-                </BrowserRouter>
+                </ConnectedRouter>
                 {this.props.popup && <Popup></Popup>}
                 {this.props.fab && <FAB></FAB>}
                 <div id="overlay">

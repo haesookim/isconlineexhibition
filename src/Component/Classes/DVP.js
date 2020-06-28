@@ -36,7 +36,12 @@ class DVP extends React.Component {
                     }}
                     onClick={() => this.onClickScreen()}
                 ></div>
-                <NPC back={minimi} line="" top={294} left={614}></NPC>
+                <NPC
+                    back={minimi}
+                    line="네오위즈 설명회가 언제더라?"
+                    top={294}
+                    left={614}
+                ></NPC>
             </div>
         );
     }

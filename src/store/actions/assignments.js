@@ -1,5 +1,6 @@
 import actionTypes from "./actionTypes";
 import axios from "axios";
+import { push } from "connected-react-router";
 
 export const getFloor = (num) => {
     return { type: actionTypes.GET_FLOOR, floor: num };
@@ -12,7 +13,11 @@ export const getAssignment_ = (data) => {
 export const getAssignment = (subject, key) => {
     return (dispatch) => {
         return axios
-            .get("info/" + subject + "_" + key)
-            .then((res) => dispatch(getAssignment_(res.data)));
+            .get("/info/" + subject + "_" + key)
+            .then((res) => dispatch(getAssignment_(res.data)))
+            .then(() => {
+                console.log(window.location.pathname + "/" + key);
+                dispatch(push(window.location.pathname + "/" + key));
+            });
     };
 };

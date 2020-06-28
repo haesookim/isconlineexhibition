@@ -85,10 +85,10 @@ class Assignment extends React.Component {
                         )}
                         <div className="top">
                             <div id="assign-title">
-                                {this.props.selectedSubject.title}
+                                {this.props.selectedAssignment.title}
                             </div>
                             <div id="assign-members">
-                                {this.props.selectedSubject.authors}
+                                {this.props.selectedAssignment.authors}
                             </div>
                         </div>
                         <img
@@ -114,16 +114,16 @@ class Assignment extends React.Component {
                         <div className="info">
                             <div className="title">과제 설명</div>
                             <div className="content">
-                                {this.props.selectedSubject.desc1}
+                                {this.props.selectedAssignment.desc1}
                             </div>
                             <div className="title">과제 역학조사</div>
                             <div className="content">
-                                {this.props.selectedSubject.desc2}
+                                {this.props.selectedAssignment.desc2}
                             </div>
                             <div id="links">
                                 <div className="link">
                                     <img alt="notion logo" src={notion}></img>
-                                    <a href={this.props.selectedSubject.url}>
+                                    <a href={this.props.selectedAssignment.url}>
                                         과제 자세히 보기
                                     </a>
                                 </div>
@@ -168,7 +168,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getAssignmentInfo: (sub, key) => {
-            dispatch(actionCreators.getAssignment(sub.link, key));
+            dispatch(actionCreators.getAssignment(sub, key));
         },
     };
 };

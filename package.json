@@ -1,7 +1,7 @@
 {
     "name": "iscexhibition",
     "version": "0.1.0",
-    "proxy": "https://isc2020-1.herokuapp.com/",
+    "proxy": "https://isc2020-1.herokuapp.com",
     "private": true,
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.29",

@@ -2,6 +2,7 @@ import React from "react";
 import background from "./background_mac.png";
 import { connect } from "react-redux";
 import * as actionCreators from "../../store/actions/index";
+import { withRouter } from "react-router";
 
 import {
     faTimes,
@@ -29,11 +30,13 @@ class AssignmentList extends React.Component {
         this.setState({ currentPage: this.state.currentPage + 1 });
     };
 
-    onSelectAssignment = (item) => {
+    onSelectAssignment = async (item) => {
         // set store on selectedsubject
         this.props.getAssignmentInfo(this.props.selectedSubject, item.index);
 
-        this.props.history.push(window.location.pathname + "/" + item.index);
+        // this.props.history.push(
+        //     window.location.pathname + "/" + item.index,
+        // );
     };
     render() {
         let pageCount = Math.floor(this.props.assignmentList.length / 4) + 1;
@@ -126,4 +129,6 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AssignmentList);
+export default withRouter(
+    connect(mapStateToProps, mapDispatchToProps)(AssignmentList),
+);

@@ -62,7 +62,12 @@ class IIT extends React.Component {
                     }}
                     onClick={() => this.props.openPopup()}
                 ></div>
-                <NPC back={minimi} line="" top={322} left={266}></NPC>
+                <NPC
+                    back={minimi}
+                    line="누가 여기서 운동했나봐···."
+                    top={322}
+                    left={266}
+                ></NPC>
             </div>
         );
     }
