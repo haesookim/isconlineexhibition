@@ -103,7 +103,7 @@ class Assignment extends React.Component {
                             className="assignment"
                             alt="과제 메인 이미지"
                             src={
-                                "https://isc2020-1.herokuapp.com/image/" +
+                                "https://isc2020-1-test.herokuapp.com/image/" +
                                 this.props.selectedSubject.link +
                                 "_" +
                                 this.state.key
@@ -126,12 +126,12 @@ class Assignment extends React.Component {
                                         과제 자세히 보기
                                     </a>
                                 </div>
-                                <div className="link">
+                                {/* <div className="link">
                                     <FontAwesomeIcon
                                         icon={faShareAlt}
                                     ></FontAwesomeIcon>
                                     <a href="">공유하기</a>
-                                </div>
+                                </div> */}
                                 <div
                                     className={
                                         this.state.liked ? "link liked" : "link"

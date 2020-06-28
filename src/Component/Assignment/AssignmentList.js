@@ -66,7 +66,7 @@ class AssignmentList extends React.Component {
                             style={{
                                 backgroundImage:
                                     "url(" +
-                                    "https://isc2020-1.herokuapp.com/image/" +
+                                    "https://isc2020-1-test.herokuapp.com/image/" +
                                     window.location.pathname.split("/")[3] +
                                     "_" +
                                     item.code.split("_")[1],
