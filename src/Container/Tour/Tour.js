@@ -51,7 +51,7 @@ class Tour extends React.Component {
                 name: "정보문화기술입문",
                 desc:
                     "요즘엔 코딩을 알아야 디지털 세상에서 인사라도 할 수 있다는데… Hello World는 부담스러운 당신에게 바치는 따뜻한 찬사 “Hello Processing!” 프로세싱으로 배우는 프로그래밍의 기초이자 정보문화학을 여행하는 초심자들을 위한 입문서.",
-                link: "IIT",
+                link: "IICT",
                 position: "2층 테라스 부근",
             },
             {
@@ -65,7 +65,7 @@ class Tour extends React.Component {
                 name: "디지털영상실습 1",
                 desc:
                     "어떻게 하면 사람들이 쉽고 정확하게 이해할 수 있도록 데이터를 시각화할 수 있을까요? 또 왜곡된 그래프에 속지 않으려면 어떻게 해야할까요? 관악의 비주얼, 비주얼라이제이션에서 배워보세요!",
-                link: "DVP",
+                link: "DI",
                 position: "2층 희관홀",
             },
         ],
@@ -92,6 +92,8 @@ class Tour extends React.Component {
                 position: "3층 랩실 뒤쪽",
             },
         ],
+
+        selectedsubj: { name: "", link: "", desc: "", position: "" },
         actionsVisible: false,
     };
     loadClass(dest) {
@@ -116,7 +118,7 @@ class Tour extends React.Component {
     setSidebar = () => {
         let pathArray = window.location.pathname.split("/");
         if (
-            this.props.selectedSubject !== null ||
+            this.props.selectedSubject !== null &&
             this.props.selectedSubject !== undefined
         ) {
             if (pathArray[2] !== this.props.currentFloor) {
@@ -133,8 +135,10 @@ class Tour extends React.Component {
                 this.props.onSelectSubject(filtered[0]);
             }
         } else {
-            this.props.onSelectSubject(this.state["1F"][0].link);
+            this.props.onSelectSubject(this.state["3F"][0]);
         }
+
+        //this.setState({ selectedsubj: this.props.selectedSubject });
     };
 
     decideBackground = () => {
@@ -160,7 +164,7 @@ class Tour extends React.Component {
                 left = 85;
                 top = 75;
                 break;
-            case "IIT":
+            case "IICT":
                 left = 18;
                 top = 100;
                 break;
@@ -184,7 +188,7 @@ class Tour extends React.Component {
                 left = 49;
                 top = 61;
                 break;
-            case "DVP":
+            case "DI":
                 left = 105;
                 top = 35;
                 break;
@@ -193,6 +197,10 @@ class Tour extends React.Component {
         }
         return { left: left, top: top };
     };
+
+    // componentDidMount = () => {
+    //     this.setSidebar();
+    // };
 
     render() {
         this.setSidebar();
@@ -203,7 +211,7 @@ class Tour extends React.Component {
                     onClick={() => this.loadClass(item)}
                     key={item.name}
                     id={
-                        this.props.selectedSubject.name === item.name
+                        item.name === this.props.selectedSubject.name
                             ? "sel-subject"
                             : ""
                     }
@@ -256,13 +264,13 @@ class Tour extends React.Component {
                             <Switch>
                                 <Route path="/tour/1F/CRP" component={CRP} />
                                 <Route path="/tour/1F/HCI" component={HCI} />
-                                <Route path="/tour/2F/IIT" component={IIT} />
+                                <Route path="/tour/2F/IICT" component={IIT} />
                                 <Route path="/tour/2F/IGD" component={IGD} />
                                 <Route
                                     path="/tour/2F/Datavis"
                                     component={Datavis}
                                 />
-                                <Route path="/tour/2F/DVP" component={DVP} />
+                                <Route path="/tour/2F/DI" component={DVP} />
                                 <Route path="/tour/3F/Dt4C" component={Dt4C} />
                                 <Route path="/tour/3F/Web" component={Web} />
                                 <Route path="/tour/3F/DM" component={DM} />

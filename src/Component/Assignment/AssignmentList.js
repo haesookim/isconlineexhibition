@@ -32,24 +32,33 @@ class AssignmentList extends React.Component {
 
     onSelectAssignment = (item) => {
         // set store on selectedsubject
-        this.props.getAssignmentInfo(this.props.selectedSubject, item.index);
+        this.props.getAssignmentInfo(
+            this.props.selectedSubject,
+            item.code.split("_")[1],
+        );
 
         // this.props.history.push(
         //     window.location.pathname + "/" + item.index,
         // );
     };
+
+    componentDidMount = () => {
+        if (this.props.assignmentList.length === 0)
+            this.props.getAssignments(window.location.pathname.split("/")[3]);
+    };
+
     render() {
         let pageCount = Math.floor(this.props.assignmentList.length / 4) + 1;
 
         let itemstoDisplay = this.props.assignmentList.map((item) => {
             if (
-                item.index > (this.state.currentPage - 1) * 4 &&
-                item.index <= this.state.currentPage * 4
+                item.code.split("_")[1] > (this.state.currentPage - 1) * 4 &&
+                item.code.split("_")[1] <= this.state.currentPage * 4
             ) {
                 return (
                     <div
                         className="assignment-item"
-                        key={item.index}
+                        key={item.code}
                         onClick={() => this.onSelectAssignment(item)}
                     >
                         <div
@@ -58,14 +67,14 @@ class AssignmentList extends React.Component {
                                 backgroundImage:
                                     "url(" +
                                     "https://isc2020-1.herokuapp.com/image/" +
-                                    this.props.selectedSubject.link +
+                                    window.location.pathname.split("/")[3] +
                                     "_" +
-                                    item.index,
+                                    item.code.split("_")[1],
                             }}
                         ></div>
                         <div className="overlay">
                             <div className="title">{item.title}</div>
-                            <div className="members">{item.members}</div>
+                            <div className="members">{item.authors}</div>
                         </div>
                     </div>
                 );
@@ -126,6 +135,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getAssignmentInfo: (sub, key) => {
             dispatch(actionCreators.getAssignment(sub.link, key));
+        },
+        getAssignments: (sub) => {
+            dispatch(actionCreators.getAssignments(sub));
         },
     };
 };

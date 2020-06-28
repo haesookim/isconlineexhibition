@@ -25,51 +25,14 @@ const initialState = {
         link: "CRP",
         position: "1층 야외공간",
     },
-    assignmentList: [
-        {
-            index: 1,
-            image: "",
-            title: "과제 1",
-            members: "학생, 학생, 학생, 학생",
-        },
-        {
-            index: 2,
-            image: "",
-            title: "과제 1",
-            members: "학생, 학생, 학생, 학생",
-        },
-        {
-            index: 3,
-            image: "",
-            title: "과제 1",
-            members: "학생, 학생, 학생, 학생",
-        },
-        {
-            index: 4,
-            image: "",
-            title: "과제 1",
-            members: "학생, 학생, 학생, 학생",
-        },
-        {
-            index: 5,
-            image: "",
-            title: "과제 1",
-            members: "학생, 학생, 학생, 학생",
-        },
-        {
-            index: 6,
-            image: "",
-            title: "과제 1",
-            members: "학생, 학생, 학생, 학생",
-        },
-        {
-            index: 7,
-            image: "",
-            title: "과제 1",
-            members: "학생, 학생, 학생, 학생",
-        },
-    ],
-    selectedAssignment: null,
+    assignmentList: [],
+    selectedAssignment: {
+        title: "",
+        authors: "",
+        url: "",
+        desc_m: "",
+        desc_s: "",
+    },
 };
 
 const reducer = (state = initialState, action) => {
@@ -87,8 +50,13 @@ const reducer = (state = initialState, action) => {
 
             return state;
         case actionTypes.GET_SUBJECT:
-            return { ...state, selectedSubject: action.subject };
+            return {
+                ...state,
+                selectedSubject: action.subject,
+            };
 
+        case actionTypes.GET_ASSIGNLIST:
+            return { ...state, assignmentList: action.assignments };
         case actionTypes.GET_ASSIGNMENT:
             return { ...state, selectedAssignment: action.assign };
         default:

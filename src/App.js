@@ -41,9 +41,7 @@ class App extends React.Component {
                         {/* <Route path="/guestbook" exact component={GuestBook} /> */}
                         <Route path="/" exact component={About} />
                         {/* <Redirect exact to="/" /> */}
-                    </Switch>
-                </ConnectedRouter>
-                <ConnectedRouter history={this.props.history}>
+                    </Switch>{" "}
                     <Switch>
                         <Route
                             path="/interaction"
