@@ -120,7 +120,6 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(actionCreators.getMsgs());
         },
         sendMessage: (message) => {
-            console.log(message);
             dispatch(actionCreators.sendMsg(message));
         },
     };

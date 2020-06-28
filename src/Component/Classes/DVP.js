@@ -15,7 +15,7 @@ class DVP extends React.Component {
     state = {};
 
     onClickScreen = () => {
-        this.props.history.push(window.location.pathname + "/list/1");
+        this.props.history.push(window.location.pathname + "/list");
         window.location.reload();
     };
 

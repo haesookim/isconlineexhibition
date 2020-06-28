@@ -78,37 +78,49 @@ class Assignment extends React.Component {
                         <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
                     </div>
                     <div id="container">
-                        {/* {!window.location.pathname.includes("DM") &&
-                        !window.location.pathname.includes("DVP") ? ( */}
-                        <div
-                            className="links"
-                            id="back"
-                            onClick={() => this.onClickBack()}
-                        >
-                            <FontAwesomeIcon
-                                icon={faArrowAltCircleLeft}
-                            ></FontAwesomeIcon>
-                            뒤로 가기
-                        </div>
-                        {/* ) : (
+                        {!window.location.pathname.includes("DM") ? (
+                            <div
+                                className="links"
+                                id="back"
+                                onClick={() => this.onClickBack()}
+                            >
+                                <FontAwesomeIcon
+                                    icon={faArrowAltCircleLeft}
+                                ></FontAwesomeIcon>
+                                뒤로 가기
+                            </div>
+                        ) : (
                             <div></div>
-                        )} */}
+                        )}
                         <div className="top">
                             <div id="assign-title">{this.state.item.title}</div>
                             <div id="assign-members">
                                 {this.state.item.authors}
                             </div>
                         </div>
-                        <img
-                            className="assignment"
-                            alt="과제 메인 이미지"
-                            src={
-                                "https://isc2020-1-test.herokuapp.com/image/" +
-                                this.props.selectedSubject.link +
-                                "_" +
-                                this.state.key
-                            }
-                        ></img>
+                        {!window.location.pathname.includes("DM") ? (
+                            <img
+                                className="assignment"
+                                alt="과제 메인 이미지"
+                                src={
+                                    "https://isc2020-1-test.herokuapp.com/image/" +
+                                    this.props.selectedSubject.link +
+                                    "_" +
+                                    this.state.key
+                                }
+                            ></img>
+                        ) : (
+                            <img
+                                className="assignment"
+                                alt="과제 메인 이미지"
+                                src={
+                                    "https://isc2020-1-test.herokuapp.com/image/" +
+                                    this.props.selectedSubject.link +
+                                    "_" +
+                                    1
+                                }
+                            ></img>
+                        )}
 
                         <div className="info">
                             <div className="title">과제 설명</div>

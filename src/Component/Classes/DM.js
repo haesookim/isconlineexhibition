@@ -12,7 +12,7 @@ import mirrorball from "./mirrorball.png";
 class DM extends React.Component {
     state = {};
     onClickMac = () => {
-        this.props.history.push(window.location.pathname + "/list/1");
+        this.props.history.push(window.location.pathname + "/list/0");
         window.location.reload();
     };
 
