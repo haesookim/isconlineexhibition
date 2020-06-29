@@ -36,10 +36,6 @@ class AssignmentList extends React.Component {
             this.props.selectedSubject,
             item.code.split("_")[1],
         );
-
-        // this.props.history.push(
-        //     window.location.pathname + "/" + item.index,
-        // );
     };
 
     componentDidMount = () => {
@@ -50,36 +46,40 @@ class AssignmentList extends React.Component {
     render() {
         let pageCount = Math.floor(this.props.assignmentList.length / 4) + 1;
 
-        let itemstoDisplay = this.props.assignmentList.map((item) => {
-            if (
-                item.code.split("_")[1] > (this.state.currentPage - 1) * 4 &&
-                item.code.split("_")[1] <= this.state.currentPage * 4
-            ) {
-                return (
-                    <div
-                        className="assignment-item"
-                        key={item.code}
-                        onClick={() => this.onSelectAssignment(item)}
-                    >
+        let itemstoDisplay = [];
+        if (this.props.assignmentList) {
+            itemstoDisplay = this.props.assignmentList.map((item) => {
+                if (
+                    item.code.split("_")[1] >
+                        (this.state.currentPage - 1) * 4 &&
+                    item.code.split("_")[1] <= this.state.currentPage * 4
+                ) {
+                    return (
                         <div
-                            className="background"
-                            style={{
-                                backgroundImage:
-                                    "url(" +
-                                    "https://isc2020-1-test.herokuapp.com/image/" +
-                                    window.location.pathname.split("/")[3] +
-                                    "_" +
-                                    item.code.split("_")[1],
-                            }}
-                        ></div>
-                        <div className="overlay">
-                            <div className="title">{item.title}</div>
-                            <div className="members">{item.authors}</div>
+                            className="assignment-item"
+                            key={item.code}
+                            onClick={() => this.onSelectAssignment(item)}
+                        >
+                            <div
+                                className="background"
+                                style={{
+                                    backgroundImage:
+                                        "url(" +
+                                        "https://isc2020-1-test.herokuapp.com/image/" +
+                                        window.location.pathname.split("/")[3] +
+                                        "_" +
+                                        item.code.split("_")[1],
+                                }}
+                            ></div>
+                            <div className="overlay">
+                                <div className="title">{item.title}</div>
+                                <div className="members">{item.authors}</div>
+                            </div>
                         </div>
-                    </div>
-                );
-            }
-        });
+                    );
+                }
+            });
+        }
         return (
             <div id="assignment">
                 <div id="closebutton" onClick={() => this.onClickClose()}>
