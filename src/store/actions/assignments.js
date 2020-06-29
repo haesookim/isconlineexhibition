@@ -15,7 +15,7 @@ export const getAssignment = (subject, key) => {
     return (dispatch) => {
         return axios
             .get(
-                "http://isc2020-1-test.herokuapp.com/assignment/" +
+                "https://isc2020-1-test.herokuapp.com/assignment/" +
                     subject +
                     "_" +
                     key,
@@ -40,7 +40,7 @@ export const getAssignments = (subject) => {
     console.log(subject);
     return (dispatch) => {
         return axios
-            .get("http://isc2020-1-test.herokuapp.com/class/" + subject)
+            .get("https://isc2020-1-test.herokuapp.com/class/" + subject)
             .then((res) => {
                 dispatch(getAssignments_(res.data));
             });
