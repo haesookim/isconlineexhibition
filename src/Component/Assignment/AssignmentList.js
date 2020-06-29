@@ -20,6 +20,16 @@ class AssignmentList extends React.Component {
     };
     state = {
         currentPage: 1,
+        assignmentList: [
+            {
+                title: "",
+                authors: "",
+                url: "",
+                desc_m: "",
+                desc_s: "",
+                code: "",
+            },
+        ],
     };
 
     onClickPrev = () => {
@@ -39,17 +49,18 @@ class AssignmentList extends React.Component {
     };
 
     componentDidMount = () => {
-        if (this.props.assignmentList.length === 0)
-            this.props.getAssignments(window.location.pathname.split("/")[3]);
+        // if (this.props.assignmentList.length === 0)
+        this.props.getAssignments(window.location.pathname.split("/")[3]);
+        this.setState({ assignmentList: this.props.assignmentList });
     };
 
     render() {
         let pageCount = Math.floor(this.props.assignmentList.length / 4) + 1;
 
         let itemstoDisplay = [];
-        let data = Array.from(this.props.assignmentList);
-        if (this.props.assignmentList) {
-            itemstoDisplay = data.map((item) => {
+        //let data = Array.from(this.state.assignmentList);
+        if (this.state.assignmentList) {
+            itemstoDisplay = this.state.assignmentList.map((item) => {
                 if (
                     item.code.split("_")[1] >
                         (this.state.currentPage - 1) * 4 &&
@@ -78,6 +89,8 @@ class AssignmentList extends React.Component {
                             </div>
                         </div>
                     );
+                } else {
+                    return null;
                 }
             });
         }

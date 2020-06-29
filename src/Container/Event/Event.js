@@ -66,7 +66,11 @@ class Event extends React.Component {
                             @itctfestival
                         </div>
                     </div>
-                    <img className="event-image" src={event} />
+                    <img
+                        className="event-image"
+                        src={event}
+                        alt="event image"
+                    />
                 </div>
             </div>
         );

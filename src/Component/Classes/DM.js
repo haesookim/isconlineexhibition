@@ -6,7 +6,7 @@ import actionTypes from "../../store/actions/actionTypes";
 
 import headphoneMac from "./../mac_headphone.png";
 import crp from "./3f_lab_back_DM.png";
-import Mac from "../MacElement";
+// import Mac from "../MacElement";
 
 import mirrorball from "./mirrorball.png";
 class DM extends React.Component {
