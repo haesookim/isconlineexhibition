@@ -62,12 +62,6 @@ class Assignment extends React.Component {
     };
 
     render() {
-        // if (
-        //     this.props.selectedAssignment === null ||
-        //     this.props.selectedAssignment === undefined
-        // ) {
-        // }
-
         return (
             <div id="assignment">
                 <div
