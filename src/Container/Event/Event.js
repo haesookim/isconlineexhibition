@@ -22,7 +22,10 @@ class Event extends React.Component {
                             온라인으로 진행되니 편하게 놀러오세요~!
                             <br />
                             <br />
-                            <a href="https://youtu.be/tyZhWBwiZHE">
+                            <a
+                                href="https://youtu.be/tyZhWBwiZHE"
+                                target="blank"
+                            >
                                 설명회 바로가기
                             </a>
                         </div>
