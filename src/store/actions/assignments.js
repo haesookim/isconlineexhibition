@@ -14,7 +14,12 @@ export const getAssignment = (subject, key) => {
     console.log(subject, key);
     return (dispatch) => {
         return axios
-            .get("/assignment/" + subject + "_" + key)
+            .get(
+                "http://isc2020-1-test.herokuapp.com/assignment/" +
+                    subject +
+                    "_" +
+                    key,
+            )
             .then((res) => dispatch(getAssignment_(res.data)))
             .then(() => {
                 if (window.location.pathname.split("/").length < 6) {
@@ -34,8 +39,10 @@ export const getAssignments_ = (data) => {
 export const getAssignments = (subject) => {
     console.log(subject);
     return (dispatch) => {
-        return axios.get("/class/" + subject).then((res) => {
-            dispatch(getAssignments_(res.data));
-        });
+        return axios
+            .get("http://isc2020-1-test.herokuapp.com/class/" + subject)
+            .then((res) => {
+                dispatch(getAssignments_(res.data));
+            });
     };
 };
