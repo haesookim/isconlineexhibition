@@ -25,7 +25,15 @@ const initialState = {
         link: "CRP",
         position: "1층 야외공간",
     },
-    assignmentList: [],
+    assignmentList: [
+        {
+            title: "",
+            authors: "",
+            url: "",
+            desc_m: "",
+            desc_s: "",
+        },
+    ],
     selectedAssignment: {
         title: "",
         authors: "",
