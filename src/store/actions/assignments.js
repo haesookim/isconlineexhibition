@@ -11,6 +11,7 @@ export const getAssignment_ = (data) => {
 };
 
 export const getAssignment = (subject, key) => {
+    console.log(subject, key);
     return (dispatch) => {
         return axios
             .get("/assignment/" + subject + "_" + key)
@@ -31,6 +32,7 @@ export const getAssignments_ = (data) => {
 };
 
 export const getAssignments = (subject) => {
+    console.log(subject);
     return (dispatch) => {
         return axios.get("/class/" + subject).then((res) => {
             dispatch(getAssignments_(res.data));
