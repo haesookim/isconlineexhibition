@@ -129,7 +129,12 @@ class Assignment extends React.Component {
                                 <div className="link">
                                     <img alt="notion logo" src={notion}></img>
                                     <a
-                                        href={this.state.item.url}
+                                        href={
+                                            this.state.item.url.includes("http")
+                                                ? this.state.item.url
+                                                : "https://" +
+                                                  this.state.item.url
+                                        }
                                         target="blank"
                                     >
                                         과제 자세히 보기
