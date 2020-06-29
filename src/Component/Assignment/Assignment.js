@@ -128,7 +128,10 @@ class Assignment extends React.Component {
                             <div id="links">
                                 <div className="link">
                                     <img alt="notion logo" src={notion}></img>
-                                    <a href={this.state.item.url}>
+                                    <a
+                                        href={this.state.item.url}
+                                        target="blank"
+                                    >
                                         과제 자세히 보기
                                     </a>
                                 </div>

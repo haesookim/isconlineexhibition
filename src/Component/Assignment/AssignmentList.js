@@ -80,6 +80,8 @@ class AssignmentList extends React.Component {
                 }
             });
         }
+
+        let data = Array.from(itemstoDisplay);
         return (
             <div id="assignment">
                 <div id="closebutton" onClick={() => this.onClickClose()}>
@@ -90,7 +92,7 @@ class AssignmentList extends React.Component {
                     style={{ backgroundImage: "url(" + background + ")" }}
                 >
                     <div id="list">
-                        {itemstoDisplay}
+                        {data}
                         <div id="controls">
                             {this.state.currentPage !== 1 && (
                                 <div
