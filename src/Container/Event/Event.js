@@ -69,9 +69,20 @@ class Event extends React.Component {
                         <div id="event-announcement">
                             이벤트 세부 정보 및 당첨자 발표:<br></br>
                             서울대학교 연합전공 정보문화학 과제전 페이스북
-                            facebook.com/itctfestival<br></br>
+                            <a
+                                href="https://www.facebook.com/itctfestival/"
+                                target="blank"
+                            >
+                                facebook.com/itctfestival
+                            </a>
+                            <br></br>
                             서울대학교 연합전공 정보문화학 과제전 인스타그램
-                            @itctfestival
+                            <a
+                                href="https://www.instagram.com/itctfestival/"
+                                target="blank"
+                            >
+                                @itctfestival
+                            </a>
                         </div>
                     </div>
                     <img
