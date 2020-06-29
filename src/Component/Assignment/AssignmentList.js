@@ -51,7 +51,7 @@ class AssignmentList extends React.Component {
     componentDidMount = () => {
         // if (this.props.assignmentList.length === 0)
         this.props.getAssignments(window.location.pathname.split("/")[3]);
-        this.setState({ assignmentList: this.props.assignmentList });
+        //this.setState({ assignmentList: this.props.assignmentList });
     };
 
     render() {
@@ -59,8 +59,8 @@ class AssignmentList extends React.Component {
 
         let itemstoDisplay = [];
         //let data = Array.from(this.state.assignmentList);
-        if (this.state.assignmentList) {
-            itemstoDisplay = this.state.assignmentList.map((item) => {
+        if (this.props.assignmentList) {
+            itemstoDisplay = this.props.assignmentList.map((item) => {
                 if (
                     item.code.split("_")[1] >
                         (this.state.currentPage - 1) * 4 &&
