@@ -58,6 +58,7 @@ class AssignmentList extends React.Component {
         let pageCount = Math.floor(this.props.assignmentList.length / 4) + 1;
 
         let itemstoDisplay = [];
+        console.log(this.props.assignmentList);
         //let data = Array.from(this.state.assignmentList);
         if (this.props.assignmentList) {
             itemstoDisplay = this.props.assignmentList.map((item) => {
