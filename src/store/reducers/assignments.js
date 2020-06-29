@@ -32,6 +32,7 @@ const initialState = {
             url: "",
             desc_m: "",
             desc_s: "",
+            code: "",
         },
     ],
     selectedAssignment: {
