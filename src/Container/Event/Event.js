@@ -20,6 +20,11 @@ class Event extends React.Component {
                             막연한 호기심을 풀거나 그동안 궁금했던 것들을 마구
                             해소할 수 있는 기회랍니다. 설명회도 역시나
                             온라인으로 진행되니 편하게 놀러오세요~!
+                            <br />
+                            <br />
+                            <a href="https://youtu.be/tyZhWBwiZHE">
+                                설명회 바로가기
+                            </a>
                         </div>
                     </div>
                     <img
