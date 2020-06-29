@@ -47,8 +47,9 @@ class AssignmentList extends React.Component {
         let pageCount = Math.floor(this.props.assignmentList.length / 4) + 1;
 
         let itemstoDisplay = [];
+        let data = Array.from(this.props.assignmentList);
         if (this.props.assignmentList) {
-            itemstoDisplay = this.props.assignmentList.map((item) => {
+            itemstoDisplay = data.map((item) => {
                 if (
                     item.code.split("_")[1] >
                         (this.state.currentPage - 1) * 4 &&
@@ -81,7 +82,6 @@ class AssignmentList extends React.Component {
             });
         }
 
-        let data = Array.from(itemstoDisplay);
         return (
             <div id="assignment">
                 <div id="closebutton" onClick={() => this.onClickClose()}>
@@ -92,7 +92,7 @@ class AssignmentList extends React.Component {
                     style={{ backgroundImage: "url(" + background + ")" }}
                 >
                     <div id="list">
-                        {data}
+                        {itemstoDisplay}
                         <div id="controls">
                             {this.state.currentPage !== 1 && (
                                 <div
