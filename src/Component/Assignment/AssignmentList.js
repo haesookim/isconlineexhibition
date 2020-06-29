@@ -81,7 +81,6 @@ class AssignmentList extends React.Component {
             }
         });
         return (
-            //onClick={() => this.onClickClose()}
             <div id="assignment">
                 <div id="closebutton" onClick={() => this.onClickClose()}>
                     <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
