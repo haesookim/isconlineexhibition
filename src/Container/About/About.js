@@ -16,8 +16,11 @@ class About extends React.Component {
             <div id="aboutpage" className="main">
                 <img id="main" src={poster} alt="포스터 gif"></img>
                 <div className="bodytext">
-                    안녕하세요! 서울대학교 연합전공 정보문화학 온라인 과제전에
-                    오신 것을 환영합니다.
+                    안녕하세요!{" "}
+                    <a href="http://isc.snu.ac.kr/" target="blank">
+                        서울대학교 연합전공 정보문화학
+                    </a>{" "}
+                    온라인 과제전에 오신 것을 환영합니다.
                     <br /> <br />
                     매 학기 말 IBK 커뮤니케이션 센터에서 진행하던 과제물 전시를
                     온라인 형태로 바꾸어 선보이게 되었습니다. 사회적 거리두기로

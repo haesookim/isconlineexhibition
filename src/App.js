@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./images/logo.png";
-import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
 import "./App.scss";
 import { connect } from "react-redux";
@@ -9,7 +9,7 @@ import redir from "./web_view.jpg";
 
 import TopNav from "./Container/TopNav/TopNav";
 import About from "./Container/About/About";
-import GuestBook from "./Container/GuestBook/Guestbook";
+//import GuestBook from "./Container/GuestBook/Guestbook";
 import Tour from "./Container/Tour/Tour";
 import Interaction from "./Container/Interaction/Interaction";
 import Event from "./Container/Event/Event";

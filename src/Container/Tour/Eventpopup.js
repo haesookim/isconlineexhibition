@@ -46,6 +46,7 @@ class Popup extends React.Component {
                                 ? mirror
                                 : dumbbell
                         }
+                        alt="QRcode"
                         onClick={() => this.onClickBox()}
                     ></img>
                     <div>{this.state.extraText[this.state.count]}</div>

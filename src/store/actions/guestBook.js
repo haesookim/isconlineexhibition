@@ -1,6 +1,6 @@
 import actionTypes from "./actionTypes";
 import axios from "axios";
-import { push } from "connected-react-router";
+//import { push } from "connected-react-router";
 
 export const getMsgs_ = (data) => {
     return { type: actionTypes.GET_ALLMSG, messageList: data };

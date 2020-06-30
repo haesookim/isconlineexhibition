@@ -13,20 +13,20 @@ class Event extends React.Component {
                 <div className="event-item">
                     <div className="text-wrapper">
                         <div className="title">
-                            #1 네오위즈 채용상담 및 설명회 (29일(월) 오전 11시)
+                            #1 네오위즈 채용상담 및 설명회 (완료)
                         </div>
                         <div className="text">
                             네오위즈와 게임에 관심있는 사람은 누구나 환영합니다!
                             막연한 호기심을 풀거나 그동안 궁금했던 것들을 마구
-                            해소할 수 있는 기회랍니다. 설명회도 역시나
-                            온라인으로 진행되니 편하게 놀러오세요~!
+                            해소할 수 있는 기회랍니다. 유튜브 실시간 방송으로
+                            비대면으로 진행된 네오위즈 채용설명회를 보러오세요!
                             <br />
                             <br />
                             <a
                                 href="https://youtu.be/tyZhWBwiZHE"
                                 target="blank"
                             >
-                                설명회 바로가기
+                                다시보기 보러가기
                             </a>
                         </div>
                     </div>
@@ -85,11 +85,7 @@ class Event extends React.Component {
                             </a>
                         </div>
                     </div>
-                    <img
-                        className="event-image"
-                        src={event}
-                        alt="event image"
-                    />
+                    <img className="event-image" src={event} alt="event main" />
                 </div>
             </div>
         );
