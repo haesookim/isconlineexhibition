@@ -15,7 +15,7 @@ class DVP extends React.Component {
     state = {};
 
     onClickScreen = () => {
-        this.props.history.push(window.location.pathname + "/list");
+        this.props.history.push(window.location.pathname + "/list/1");
         window.location.reload();
     };
 
@@ -25,7 +25,6 @@ class DVP extends React.Component {
                 <div
                     history={this.props.history}
                     key={4}
-                    isFlipped={true}
                     style={{
                         position: "absolute",
                         left: 404,

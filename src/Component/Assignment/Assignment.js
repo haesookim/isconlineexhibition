@@ -12,6 +12,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./Assignment.scss";
 
+import DI from "./DVW_1.png";
+
 import notion from "./Notion_app_logo.png";
 class Assignment extends React.Component {
     state = {
@@ -50,10 +52,24 @@ class Assignment extends React.Component {
     };
 
     componentDidMount = () => {
-        this.props.getAssignmentInfo(
-            window.location.pathname.split("/")[3],
-            window.location.pathname.split("/")[5],
-        );
+        if (window.location.pathname.includes("DI")) {
+            this.setState({
+                item: {
+                    title: "코로나 시대의 영상 걸작선",
+                    authors: "디지털영상실습 수강생",
+                    url:
+                        "https://www.notion.so/17a16f7668a44f13907c55a02d5dab31",
+                    desc_m:
+                        "요즘은 영상콘텐츠의 시대! 학생들의 개성이 톡톡 튀는 영상들을 보고가세요!",
+                    desc_s: "공개해주셔서 감사해요 모두들!",
+                },
+            });
+        } else {
+            this.props.getAssignmentInfo(
+                window.location.pathname.split("/")[3],
+                window.location.pathname.split("/")[5],
+            );
+        }
     };
 
     componentDidUpdate = (prevProps) => {
@@ -72,7 +88,8 @@ class Assignment extends React.Component {
                         <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
                     </div>
                     <div id="container">
-                        {!window.location.pathname.includes("DM") ? (
+                        {!window.location.pathname.includes("DM") &&
+                        !window.location.pathname.includes("DI") ? (
                             <div
                                 className="links"
                                 id="back"
@@ -93,16 +110,24 @@ class Assignment extends React.Component {
                             </div>
                         </div>
                         {!window.location.pathname.includes("DM") ? (
-                            <img
-                                className="assignment"
-                                alt="과제 메인 이미지"
-                                src={
-                                    "https://isc2020-1-test.herokuapp.com/image/" +
-                                    this.props.selectedSubject.link +
-                                    "_" +
-                                    this.state.key
-                                }
-                            ></img>
+                            !window.location.pathname.includes("DI") ? (
+                                <img
+                                    className="assignment"
+                                    alt="과제 메인 이미지"
+                                    src={
+                                        "https://isc2020-1-test.herokuapp.com/image/" +
+                                        this.props.selectedSubject.link +
+                                        "_" +
+                                        this.state.key
+                                    }
+                                ></img>
+                            ) : (
+                                <img
+                                    className="assignment"
+                                    alt="과제 메인 이미지"
+                                    src={DI}
+                                ></img>
+                            )
                         ) : (
                             <img
                                 className="assignment"
